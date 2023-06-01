@@ -15,6 +15,8 @@ vim.call('plug#begin')
 -- Extensions
 Plug 'nvim-lua/plenary.nvim' -- telescope dependency
 Plug('nvim-telescope/telescope.nvim', { tag = '*' })
+Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
+
 Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/vim-be-good'
 
