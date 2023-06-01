@@ -10,6 +10,8 @@ set expandtab
 " Changing defaults for 'Explorer' mode, etc
 " Defaults are: noma nomod nonu nowrap ro nobl
 let g:netrw_bufsettings = 'noma nomod nu relnum nowrap ro nobl'
+let g:netrw_preview = 1 " Vertical split for preview
+let g:netrw_winsize = 30
 
 set noswapfile 
 set nobackup
