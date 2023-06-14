@@ -23,6 +23,7 @@ Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 Plug 'phaazon/hop.nvim'
 
 Plug 'mbbill/undotree'
+Plug 'folke/which-key.nvim'
 Plug 'ThePrimeagen/vim-be-good'
 
 Plug 'github/copilot.vim'
