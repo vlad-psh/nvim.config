@@ -12,7 +12,7 @@ set expandtab
 " Defaults are: noma nomod nonu nowrap ro nobl
 let g:netrw_bufsettings = 'noma nomod nu relnum nowrap ro nobl'
 let g:netrw_preview = 1 " Vertical split for preview
-let g:netrw_winsize = 30
+" let g:netrw_winsize = 30
 
 set noswapfile 
 set nobackup
@@ -21,9 +21,6 @@ set undofile
 
 " set guicursor=""
 set termguicolors
-
-highlight Pmenu ctermfg=white ctermbg=darkblue
-highlight PmenuSel ctermfg=black ctermbg=yellow
 
 " Seems like this won't work for multichar mappings
 " https://github.com/vim/vim/issues/3018#issuecomment-1206100569
@@ -34,6 +31,3 @@ lua << EOF
   require('remap')
 EOF
 
-let g:onedark_config = { 'style': 'light' }
-set background=light
-colorscheme onedark

@@ -87,6 +87,10 @@ Plug 'NLKNguyen/papercolor-theme'
 -- Atom colors. To change the style, use:
 -- let g:onedark_config = { 'style': 'dark|darker|warm|warmer|cool|deep|light' }
 Plug 'navarasu/onedark.nvim'
+-- https://github.com/ellisonleao/gruvbox.nvim
+Plug 'ellisonleao/gruvbox.nvim'
+-- https://github.com/EdenEast/nightfox.nvim
+Plug 'EdenEast/nightfox.nvim'
 
 -- Initialize plugin system
 -- - Automatically executes `filetype plugin indent on` and `syntax enable`.
