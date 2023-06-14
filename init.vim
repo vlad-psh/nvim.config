@@ -1,5 +1,6 @@
 set number
 set relativenumber
+set cursorline
 " Lines to always show above/below cursor
 set scrolloff=5
 
@@ -33,4 +34,6 @@ lua << EOF
   require('remap')
 EOF
 
-colorscheme lightning
+let g:onedark_config = { 'style': 'light' }
+set background=light
+colorscheme onedark
