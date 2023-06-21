@@ -1,5 +1,9 @@
 local builtin = require('telescope.builtin')
 
+-- For fzf configuration options see:
+-- https://github.com/nvim-telescope/telescope-fzf-native.nvim
+require('telescope').load_extension('fzf')
+
 -- Default
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
 vim.keymap.set('n', '<leader>fs', builtin.live_grep, { desc = 'Grep string' })
