@@ -1,5 +1,6 @@
 vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.keymap.set("", "<C-j>", "<Enter>", { noremap = true })
+vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 
 -- BUG: when this config is reloaded multiple times, each reload will add an
 -- additional autocommand, which will add additional shift to the cursor
@@ -23,6 +24,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l")
 vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j")
 
+-- quickfix window
 vim.keymap.set("n", "<C-c>", function() vim.cmd("cnext") end, { desc = "quickfix: Next item" })
 vim.keymap.set("n", "<C-S-c>", function() vim.cmd("cprev") end, { desc = "quickfix: Previous item" })
 vim.keymap.set("n", "<leader>cn", function() vim.cmd("cnext") end, { desc = "quickfix: Next item" })
