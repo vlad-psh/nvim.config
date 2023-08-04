@@ -31,10 +31,16 @@ vim.keymap.set("n", "<leader>cn", function() vim.cmd("cnext") end, { desc = "qui
 vim.keymap.set("n", "<leader>cp", function() vim.cmd("cprev") end, { desc = "quickfix: Previous item" })
 vim.keymap.set("n", "<leader>cx", function() vim.cmd("cclose") end, { desc = "quickfix: Close" })
 
+-- COPY and PASTE hotkeys
 -- copy to OS clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = "Copy selection to OS clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy line to OS clipboard" })
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste from OS clipboard" })
+-- For more remaps for terminal, see: :help terminal-input
+vim.keymap.set("t", "<C-r>", function()
+  return '<C-\\><C-N>"' .. vim.fn.nr2char(vim.fn.getchar()) .. 'pi'
+end, { noremap = true, expr = true, desc = "Paste from given register, eg: <C-r>+" })
+vim.keymap.set("t", "<C-p>", '<C-\\><C-N>pi', { noremap = true, desc = "Paste from current register" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
