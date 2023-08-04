@@ -1,3 +1,6 @@
+vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
+vim.keymap.set("", "<C-j>", "<Enter>", { noremap = true })
+
 vim.g.mapleader = " "
 -- I'm trying to group my <leader> keymaps by the following rules:
 --   <leader>v actions that opens a new window
@@ -11,6 +14,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- search result is always in the center of the screen
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- when create new split, focus on it
+vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l")
+vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j")
 
 -- copy to OS clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = "Copy selection to OS clipboard" })
