@@ -7,6 +7,11 @@ set scrolloff=5
 set tabstop=2
 set shiftwidth=2
 set expandtab 
+" Folding settings
+set foldmethod=indent
+set foldnestmax=4
+set nofoldenable
+set foldlevel=1
 
 " Changing defaults for 'Explorer' mode, etc
 " Defaults are: noma nomod nonu nowrap ro nobl
