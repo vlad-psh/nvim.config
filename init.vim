@@ -24,6 +24,8 @@ set nobackup
 set undodir=~/.local/share/nvim/undodir
 set undofile
 
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+
 " set guicursor=""
 set termguicolors
 
@@ -32,6 +34,7 @@ set termguicolors
 set langmap="йцукенгшщз;qwertyuiop,фывапролд;asdfghjkl,ячсмить;zxcvbnm,ЙЦУКЕНГШЩЗ;QWERTYUIOP,ФЫВАПРОЛД;ASDFGHJKL,ЯЧСМИТЬ;ZXCVBNM"
 
 lua << EOF
+  require('init')
   require('vim-plug')
   require('remap')
 EOF

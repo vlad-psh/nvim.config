@@ -16,6 +16,9 @@ vim.call('plug#begin')
 -- Extensions
 -------------------------------------------------
 
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
 Plug 'nvim-lua/plenary.nvim' -- telescope dependency
 Plug('nvim-telescope/telescope.nvim', { branch = 'master' })
 Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })

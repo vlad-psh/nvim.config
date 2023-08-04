@@ -1,4 +1,6 @@
 # Prerequisites
 
 * https://github.com/junegunn/vim-plug
-* https://github.com/BurntSushi/ripgrep - to search files via [telescope](https://github.com/nvim-telescope/telescope.nvim)
+* https://github.com/junegunn/fzf
+* https://github.com/BurntSushi/ripgrep
+
