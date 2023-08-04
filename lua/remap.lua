@@ -1,4 +1,8 @@
 vim.g.mapleader = " "
+-- I'm trying to group my <leader> keymaps by the following rules:
+--   <leader>v actions that opens a new window
+--   <leader>g git actions (stage, reset, etc)
+--   <leader>h git non-destructive actions (blame, display something, etc)
 
 -- PgUp/PgDn centers cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
