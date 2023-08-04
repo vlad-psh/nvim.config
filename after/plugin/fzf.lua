@@ -1,6 +1,6 @@
 -- Ignore file names when searching with ripgrep
 -- https://dev.to/iggredible/how-to-search-faster-in-vim-with-fzf-vim-36ko
-vim.cmd('command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {\'options\': \'--delimiter : --nth 4..\'}, <bang>0)')
+vim.cmd('command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), fzf#vim#with_preview({\'options\': \'--delimiter : --nth 4..\'}), <bang>0)')
 
 vim.keymap.set('n', '<C-f>', function() vim.cmd("Files") end, { desc = 'Find files' })
 vim.keymap.set('n', '<C-S-f>', function() vim.fn['fzf#vim#files']('app') end, { desc = 'Find files in ./app' })
