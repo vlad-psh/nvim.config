@@ -23,6 +23,12 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l")
 vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j")
 
+vim.keymap.set("n", "<C-c>", function() vim.cmd("cnext") end, { desc = "quickfix: Next item" })
+vim.keymap.set("n", "<C-S-c>", function() vim.cmd("cprev") end, { desc = "quickfix: Previous item" })
+vim.keymap.set("n", "<leader>cn", function() vim.cmd("cnext") end, { desc = "quickfix: Next item" })
+vim.keymap.set("n", "<leader>cp", function() vim.cmd("cprev") end, { desc = "quickfix: Previous item" })
+vim.keymap.set("n", "<leader>cx", function() vim.cmd("cclose") end, { desc = "quickfix: Close" })
+
 -- copy to OS clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = "Copy selection to OS clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy line to OS clipboard" })
