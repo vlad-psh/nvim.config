@@ -32,10 +32,12 @@ vim.keymap.set("n", "<leader>cp", function() vim.cmd("cprev") end, { desc = "qui
 vim.keymap.set("n", "<leader>cx", function() vim.cmd("cclose") end, { desc = "quickfix: Close" })
 
 -- COPY and PASTE hotkeys
+-- 'x' stands for 'visual' and 'select' mode (:help mapmode-x)
+vim.keymap.set({"n", "x"}, "p", "P", { desc = "Paste (before cursor)" })
 -- copy to OS clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = "Copy selection to OS clipboard" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy line to OS clipboard" })
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste from OS clipboard" })
+vim.keymap.set({"n", "x"}, "<leader>y", [["+y]], { desc = "Copy selection to OS clipboard" })
+vim.keymap.set({"n", "x"}, "<leader>Y", [["+Y]], { desc = "Copy line to OS clipboard" })
+vim.keymap.set({"n", "x"}, "<leader>p", [["+P]], { desc = "Paste from OS clipboard" })
 -- For more remaps for terminal, see: :help terminal-input
 vim.keymap.set("t", "<C-r>", function()
   return '<C-\\><C-N>"' .. vim.fn.nr2char(vim.fn.getchar()) .. 'pi'
