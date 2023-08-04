@@ -1,6 +1,10 @@
 vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.keymap.set("", "<C-j>", "<Enter>", { noremap = true })
 
+-- BUG: when this config is reloaded multiple times, each reload will add an
+-- additional autocommand, which will add additional shift to the cursor
+vim.cmd("au InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])")
+
 vim.g.mapleader = " "
 -- I'm trying to group my <leader> keymaps by the following rules:
 --   <leader>v actions that opens a new window
