@@ -36,7 +36,6 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring' -- commenting support for fil
 -- GIT integration
 -------------------------------------------------
 
-Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
 
 -------------------------------------------------
