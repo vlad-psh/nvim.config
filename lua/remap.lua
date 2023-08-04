@@ -49,3 +49,5 @@ vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "
 
 vim.keymap.set("n", "[t", function() vim.cmd("tabprevious") end, { desc = "Previous tab" })
 vim.keymap.set("n", "]t", function() vim.cmd("tabnext") end, { desc = "Next tab" })
+
+vim.keymap.set("n", "<leader>e", function() vim.cmd("Explore") end, { desc = "Open netrw-explore" })
