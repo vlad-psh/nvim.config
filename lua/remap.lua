@@ -22,8 +22,7 @@ vim.g.mapleader = " "
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up" })
 
-vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source current file" })
-vim.keymap.set("n", "<leader>e", function() vim.cmd("Explore") end, { desc = "Open netrw-explore" })
+vim.keymap.set("n", "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 ---------------------------------------
 -- COPY AND PASTE
@@ -39,11 +38,6 @@ vim.keymap.set("t", "<C-r>", function()
   return '<C-\\><C-N>"' .. vim.fn.nr2char(vim.fn.getchar()) .. 'pi'
 end, { noremap = true, expr = true, desc = "Paste from given register, eg: <C-r>+" })
 vim.keymap.set("t", "<C-p>", '<C-\\><C-N>pi', { noremap = true, desc = "Paste from current register" })
-
----------------------------------------
--- DELETION
----------------------------------------
-vim.keymap.set("n", "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 ---------------------------------------
 -- TEXT NAVIGATION
@@ -76,3 +70,7 @@ vim.keymap.set("n", "<leader>cx", function() vim.cmd("cclose") end, { desc = "qu
 -- When create new split, focus on it
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l", { desc = "Vertical split (focus right)" })
 vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j", { desc = "Horizontal split (focus bottom)" })
+-- netrw-explore
+vim.keymap.set("n", "<leader>e", function() vim.cmd("Explore") end, { desc = "Open netrw-explore" })
+
+vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source current file" })
