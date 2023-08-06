@@ -23,6 +23,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up" })
 
 vim.keymap.set("n", "<leader>d", [["_d]], { desc = "Delete without yanking" })
+-- Replace exact match of current word (under cursor) with...
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 ---------------------------------------
 -- COPY AND PASTE
