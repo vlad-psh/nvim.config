@@ -1,6 +1,11 @@
 ---------------------------------------
 -- GENERAL REMAPS
 ---------------------------------------
+vim.keymap.set("i", "<Esc>", function()
+  -- Use kbswitch tool https://github.com/1dancook/kbswitch
+  vim.cmd("silent !kbswitch com.apple.keylayout.ABC &")
+  return "<Esc>"
+end, { expr = true, noremap = true })
 vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.keymap.set("", "<C-j>", "<Enter>", { noremap = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
