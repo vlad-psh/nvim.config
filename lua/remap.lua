@@ -11,8 +11,7 @@ vim.keymap.set("", "<C-j>", "<Enter>", { noremap = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 
 vim.g.mapleader = " "
--- <leader>s - fzf Search
--- <leader>f - telescope search
+-- <leader>/ - fzf/telescope Search
 -- <leader>g - Git actions (stage, reset, etc)
 -- <leader>h - display some info (presumably in Hover window)
 -- <leader>l - LSP actions
