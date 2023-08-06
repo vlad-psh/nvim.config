@@ -3,6 +3,7 @@ set relativenumber
 set cursorline
 " Lines to always show above/below cursor
 set scrolloff=5
+set sidescrolloff=10
 
 set tabstop=2
 set shiftwidth=2
@@ -28,10 +29,6 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
 
 " set guicursor=""
 set termguicolors
-
-" Seems like this won't work for multichar mappings
-" https://github.com/vim/vim/issues/3018#issuecomment-1206100569
-set langmap="йцукенгшщз;qwertyuiop,фывапролд;asdfghjkl,ячсмить;zxcvbnm,ЙЦУКЕНГШЩЗ;QWERTYUIOP,ФЫВАПРОЛД;ASDFGHJKL,ЯЧСМИТЬ;ZXCVBNM"
 
 lua << EOF
   require('init')
