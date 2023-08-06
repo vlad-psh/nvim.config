@@ -28,7 +28,6 @@ Plug 'phaazon/hop.nvim'
 
 Plug 'mbbill/undotree'
 Plug 'folke/which-key.nvim'
-Plug 'ThePrimeagen/vim-be-good'
 
 Plug 'github/copilot.vim'
 Plug 'tpope/vim-commentary'
@@ -94,6 +93,13 @@ Plug 'navarasu/onedark.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 -- https://github.com/EdenEast/nightfox.nvim
 Plug 'EdenEast/nightfox.nvim'
+
+-------------------------------------------------
+-- FUN
+-------------------------------------------------
+
+Plug 'ThePrimeagen/vim-be-good'
+Plug 'eandrju/cellular-automaton.nvim' -- eg: :CellularAutomaton make_it_rain
 
 -- Initialize plugin system
 -- - Automatically executes `filetype plugin indent on` and `syntax enable`.

@@ -76,3 +76,8 @@ vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j", { desc = "Horizontal split (focus 
 vim.keymap.set("n", "<leader>e", function() vim.cmd("Explore") end, { desc = "Open netrw-explore" })
 
 vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source current file" })
+
+---------------------------------------
+-- OTHER
+---------------------------------------
+vim.keymap.set("n", "<leader>r", function() vim.cmd("CellularAutomaton make_it_rain") end, { desc = "Make it rain!" })
