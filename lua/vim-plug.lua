@@ -68,6 +68,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'slim-template/vim-slim'
+Plug 'nvim-lualine/lualine.nvim'
 
 -------------------------------------------------
 -- THEMES
