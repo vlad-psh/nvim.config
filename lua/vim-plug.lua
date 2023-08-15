@@ -40,6 +40,8 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring' -- commenting support for fil
 -------------------------------------------------
 
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb' -- GitHub support for fugitive
 
 -------------------------------------------------
 -- LSP Support
