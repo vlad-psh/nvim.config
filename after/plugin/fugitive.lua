@@ -1,4 +1,5 @@
-vim.keymap.set('n', '<C-g>', function() vim.cmd("Git | resize 15") end, { desc = 'Open fugitive' })
+vim.keymap.set('n', '<C-S-g>', function() vim.cmd("Git | resize 15") end, { desc = 'Open fugitive' })
+vim.keymap.set('n', '<C-g>', function() vim.cmd("tabnew | Git | only") end, { desc = 'Open fugitive in new tab' })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'fugitive',
