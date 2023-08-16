@@ -1,3 +1,5 @@
+vim.g.fzf_layout = { window = { width = 1.0, height = 1.0, border = 'none' } }
+
 -- Ignore file names when searching with ripgrep
 -- https://dev.to/iggredible/how-to-search-faster-in-vim-with-fzf-vim-36ko
 vim.cmd('command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), fzf#vim#with_preview({\'options\': \'--delimiter : --nth 4..\'}), <bang>0)')
@@ -10,3 +12,4 @@ vim.keymap.set('n', '<leader>/b', function() vim.cmd("Buffers") end, { desc = 'B
 vim.keymap.set('n', '<leader>/h', function() vim.cmd("Helptags") end, { desc = 'Help tags' })
 vim.keymap.set('n', '<leader>/t', function() vim.cmd("Filetypes") end, { desc = 'File types' })
 vim.keymap.set('n', '<leader>/v', function() vim.cmd("Colors") end, { desc = 'Colorschemes' })
+vim.keymap.set('n', '<leader>/f', function() vim.cmd("BCommits") end, { desc = 'Git commits for current buffer' })
