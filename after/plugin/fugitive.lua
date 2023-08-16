@@ -1,5 +1,7 @@
-vim.keymap.set('n', '<C-S-g>', function() vim.cmd("Git | resize 15") end, { desc = 'Open fugitive' })
-vim.keymap.set('n', '<C-g>', function() vim.cmd("tabnew | Git | only") end, { desc = 'Open fugitive in new tab' })
+vim.keymap.set("n", "<C-S-g>", function() vim.cmd("Git | resize 15") end, { desc = "Open fugitive" })
+vim.keymap.set("n", "<C-g>", function() vim.cmd("tabnew | Git | only") end, { desc = "Open fugitive in new tab" })
+vim.keymap.set("n", "gw", function() vim.cmd("GBrowse") end, { desc = "Open on GitHub" }) -- mnemonic: git web
+vim.keymap.set("x", "gw", function() return ":'<,'>GBrowse<CR>" end, { desc = "Open on GitHub", expr = true })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'fugitive',
