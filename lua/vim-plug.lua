@@ -34,6 +34,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring' -- commenting support for files with multiple languages (vue, etc)
+Plug 'tpope/vim-dispatch'
 
 -------------------------------------------------
 -- GIT integration
