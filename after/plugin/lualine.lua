@@ -5,10 +5,10 @@ require('lualine').setup {
     globalstatus = false,
     component_separators = { left = '⟩', right = '⟨' },
   },
+  extensions = {'fugitive', 'quickfix'},
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff'},
-    lualine_c = {
+    lualine_b = {
       {
         'filename',
         file_status = true,
@@ -30,8 +30,22 @@ require('lualine').setup {
         }
       },
     },
+    lualine_c = {},
     lualine_x = {'filetype', 'diagnostics'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
+  },
+  tabline = {
+    lualine_a = {},
+    lualine_b = {
+      {
+        'tabs',
+        mode = 2,
+      }
+    },
+    lualine_c = {},
+    lualine_x = {'diff'},
+    lualine_y = {'branch'},
+    lualine_z = {}
   },
 }
