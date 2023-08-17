@@ -29,7 +29,6 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- COPY AND PASTE
 ---------------------------------------
 -- 'x' stands for 'visual' and 'select' mode (:help mapmode-x)
-vim.keymap.set({"n", "x"}, "p", "P", { desc = "Paste (before cursor)" })
 -- copy to OS clipboard
 vim.keymap.set({"n", "x"}, "<leader>y", [["+y]], { desc = "Copy selection to OS clipboard" })
 vim.keymap.set({"n", "x"}, "<leader>Y", [["+Y]], { desc = "Copy line to OS clipboard" })
