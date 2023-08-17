@@ -7,7 +7,6 @@ vim.keymap.set("i", "<Esc>", function()
   return "<Esc>"
 end, { expr = true, noremap = true })
 vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
-vim.keymap.set("", "<C-j>", "<Enter>", { noremap = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 
 vim.g.mapleader = " "
@@ -66,25 +65,21 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Quickfix window
 vim.keymap.set("n", "<C-c>", function() vim.cmd("cnext") end, { desc = "quickfix: Next item" })
 vim.keymap.set("n", "<C-S-c>", function() vim.cmd("cprev") end, { desc = "quickfix: Previous item" })
-vim.keymap.set("n", "<leader>cn", function() vim.cmd("cnext") end, { desc = "quickfix: Next item" })
-vim.keymap.set("n", "<leader>cp", function() vim.cmd("cprev") end, { desc = "quickfix: Previous item" })
-vim.keymap.set("n", "<leader>cx", function() vim.cmd("cclose") end, { desc = "quickfix: Close" })
+vim.keymap.set("n", "<C-w>c", function() vim.cmd("cclose") end, { desc = "quickfix: Close" })
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to the bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to the upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to the right window" })
--- Window resizing
-vim.keymap.set("n", "<C-w>z", function() vim.cmd("only") end, { desc = "Maximize window" })
 -- When create new split, focus on it
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l", { desc = "Vertical split (focus right)" })
 vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j", { desc = "Horizontal split (focus bottom)" })
 -- netrw-explore
 vim.keymap.set("n", "<leader>e", function() vim.cmd("Explore") end, { desc = "Open netrw-explore" })
 
-vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source current file" })
-
 ---------------------------------------
 -- OTHER
 ---------------------------------------
+vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source current file" })
+vim.keymap.set("n", "<C-m>", "@@", { desc = "Repeat last macro" })
 vim.keymap.set("n", "<leader>r", function() vim.cmd("CellularAutomaton make_it_rain") end, { desc = "Make it rain!" })
