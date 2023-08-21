@@ -1,6 +1,3 @@
-require('vim-plug')
-require('remap')
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
@@ -33,3 +30,10 @@ vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
 -- vim.opt.guicursor = ""
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
+
+-- Disable default keyboard mappings of tpope/vim-dispatch
+-- Should be set before loading the plugin
+vim.g.dispatch_no_maps = 1
+
+require('vim-plug')
+require('remap')
