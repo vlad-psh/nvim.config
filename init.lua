@@ -22,7 +22,7 @@ vim.g.netrw_preview = 1 -- Vertical split for preview
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = "~/.local/share/nvim/undodir"
+vim.cmd("set undodir=~/.local/share/nvim/undodir")
 vim.opt.undofile = true
 
 vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
