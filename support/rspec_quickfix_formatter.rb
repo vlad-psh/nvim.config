@@ -1,26 +1,24 @@
 # frozen_string_literal: true
 
-class RSpec::Core::Notifications::ExamplesNotification
-  # @return [String] The list of failed examples, fully formatted in the way
-  #   that RSpec's built-in formatters emit.
-  # @see https://github.com/rspec/rspec-core/blob/main/lib/rspec/core/notifications.rb#L110
-  def fully_formatted_failed_examples(colorizer=::RSpec::Core::Formatters::ConsoleCodes)
-    formatted = "\nFailures:\n"
+class RSpec::Core::Formatters::ExceptionPresenter
+  # @see https://github.com/rspec/rspec-core/blob/master/lib/rspec/core/formatters/exception_presenter.rb#L84-L95
+  def fully_formatted_lines(failure_number, _colorizer)
+    breadcrumbs = example.example_group
+                         .parent_groups
+                         .reverse
+                         .map(&:description)
+                         .append(example.description)
+                         .join(' ◆ ')
 
-    failure_notifications.each_with_index do |failure, index|
-      formatted += failure.fully_formatted(index.next, colorizer)
+    lines = [
+      breadcrumbs,
+      "[EE] #{example.location}:#{example.exception}",
+      read_failed_lines,
+      '',
+      formatted_backtrace,
+      ''
+    ].flatten.compact
 
-      breadcrumbs = failure.example
-                           .example_group
-                           .parent_groups
-                           .reverse
-                           .map(&:description)
-                           .append(failure.example.description)
-                           .join(' → ')
-
-      formatted += "[EE] #{failure.example.location}:#{breadcrumbs}\n"
-    end
-
-    formatted
+    indent_lines(lines, failure_number)
   end
 end
