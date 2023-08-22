@@ -25,6 +25,9 @@ vim.keymap.set("n", "<leader>d", [["_d]], { desc = "Delete without yanking" })
 -- Replace exact match of current word (under cursor) with...
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Keep visual selection after indenting
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 ---------------------------------------
 -- COPY AND PASTE
 ---------------------------------------
@@ -80,6 +83,6 @@ vim.keymap.set("n", "-", ":Explore<CR>", { desc = "Open netrw-explore" })
 -- OTHER
 ---------------------------------------
 vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source current file" })
-vim.keymap.set("n", "<C-m>", "@@", { desc = "Repeat last macro" })
+-- vim.keymap.set("n", "<C-m>", "@@", { desc = "Repeat last macro" })
 vim.keymap.set("n", "<leader>r", function() vim.cmd("CellularAutomaton make_it_rain") end, { desc = "Make it rain!" })
 vim.keymap.set("n", "<leader>c", function() vim.cmd("Themery") end, { desc = "Themery / Switch colorscheme" })
