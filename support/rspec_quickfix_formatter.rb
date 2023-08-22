@@ -10,9 +10,14 @@ class RSpec::Core::Formatters::ExceptionPresenter
                          .append(example.description)
                          .join(' ◆ ')
 
+    exception = example.exception
+                       .to_s.strip
+                       .gsub(/\n/, ' ◆ ')
+                       .gsub(/ +/, ' ')
+
     lines = [
       breadcrumbs,
-      "[EE] #{example.location}:#{example.exception}",
+      "[EE] #{example.location}:#{exception}",
       read_failed_lines,
       '',
       formatted_backtrace,
