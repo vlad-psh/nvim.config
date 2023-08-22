@@ -34,6 +34,8 @@ vim.opt.colorcolumn = "80"
 -- Disable default keyboard mappings of tpope/vim-dispatch
 -- Should be set before loading the plugin
 vim.g.dispatch_no_maps = 1
+-- Do not use 'lush' for zenbones colorscheme
+vim.g.bones_compat = 1
 
 require('vim-plug')
 require('remap')

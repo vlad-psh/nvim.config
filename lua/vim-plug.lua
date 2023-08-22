@@ -79,6 +79,9 @@ Plug 'nvim-lualine/lualine.nvim'
 -- THEMES
 -------------------------------------------------
 
+-- Themes switcher
+Plug 'zaldih/themery.nvim'
+
 -- https://github.com/Alexis12119/nightly.nvim
 Plug 'Alexis12119/nightly.nvim'
 -- https://github.com/TheNiteCoder/mountaineer.vim
@@ -87,18 +90,14 @@ Plug 'TheNiteCoder/mountaineer.vim'
 Plug 'wimstefan/Lightning'
 -- https://github.com/sonph/onehalf
 Plug('sonph/onehalf', { ['rtp'] = 'vim' })
--- https://github.com/NLKNguyen/papercolor-theme
--- Has two styles, change it with:
--- set background=dark|light
-Plug 'NLKNguyen/papercolor-theme'
 -- https://github.com/navarasu/onedark.nvim
 -- Atom colors. To change the style, use:
 -- let g:onedark_config = { 'style': 'dark|darker|warm|warmer|cool|deep|light' }
 Plug 'navarasu/onedark.nvim'
--- https://github.com/ellisonleao/gruvbox.nvim
-Plug 'ellisonleao/gruvbox.nvim'
 -- https://github.com/EdenEast/nightfox.nvim
 Plug 'EdenEast/nightfox.nvim'
+-- https://github.com/mcchrish/zenbones.nvim
+Plug 'mcchrish/zenbones.nvim'
 
 -------------------------------------------------
 -- FUN

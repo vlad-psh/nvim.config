@@ -1,5 +1,23 @@
+require("themery").setup({
+  themes = {
+    { name = "zenbones:light", colorscheme = "zenbones", before = "vim.opt.background = 'light'" },
+    { name = "zenwritten:light", colorscheme = "zenwritten", before = "vim.opt.background = 'light'" },
+    { name = "tokyobones:light", colorscheme = "tokyobones", before = "vim.opt.background = 'light'" },
+    { name = "onedark:light", colorscheme = "onedark", before = "vim.opt.background = 'light'" },
+    { name = "dayfox", colorscheme = "dayfox", },
+    { name = "onehalflight", colorscheme = "onehalflight", },
+    { name = "zenwritten:dark", colorscheme = "zenwritten", before = "vim.opt.background = 'dark'" },
+    { name = "rosebones:dark", colorscheme = "rosebones", before = "vim.opt.background = 'dark'" },
+    { name = "terafox", colorscheme = "terafox" },
+    { name = "nightly", colorscheme = "nightly" },
+    { name = "mountaineer", colorscheme = "mountaineer", },
+  },
+  themeConfigFile = "~/.config/nvim/after/plugin/colorschemes.lua",
+  livePreview = true,
+})
+
 -- nightfox styles: nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
-require('nightfox').setup({
+require("nightfox").setup({
   options = {
     dim_inactive = true,
     terminal_colors = false,
@@ -40,3 +58,8 @@ vim.cmd('set guicursor+=i:ver50-Cursor')
 
 -- let g:onedark_config = { 'style': 'light' }
 -- set background=light
+
+-- Themery block
+-- This block will be replaced by Themery.
+vim.cmd("colorscheme dayfox")
+-- end themery block
