@@ -1,5 +1,6 @@
 require("themery").setup({
   themes = {
+    { name = "xcode:mod", colorscheme = "xcodemod" },
     { name = "xcode:light:hc", colorscheme = "xcodelighthc" },
     -- Some zenbones themes are not being loaded properly on startup unless we load default 'zenbones' before
     { name = "zenbones:light", colorscheme = "zenbones", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'light'" },
@@ -61,5 +62,5 @@ vim.cmd('set guicursor+=i:ver50-Cursor')
 
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme xcodelighthc")
+vim.cmd("colorscheme xcodemod")
 -- end themery block
