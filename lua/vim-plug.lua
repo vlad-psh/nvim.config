@@ -86,18 +86,12 @@ Plug 'zaldih/themery.nvim'
 Plug 'Alexis12119/nightly.nvim'
 -- https://github.com/TheNiteCoder/mountaineer.vim
 Plug 'TheNiteCoder/mountaineer.vim'
--- https://github.com/wimstefan/Lightning
-Plug 'wimstefan/Lightning'
--- https://github.com/sonph/onehalf
-Plug('sonph/onehalf', { ['rtp'] = 'vim' })
--- https://github.com/navarasu/onedark.nvim
--- Atom colors. To change the style, use:
--- let g:onedark_config = { 'style': 'dark|darker|warm|warmer|cool|deep|light' }
-Plug 'navarasu/onedark.nvim'
 -- https://github.com/EdenEast/nightfox.nvim
 Plug 'EdenEast/nightfox.nvim'
 -- https://github.com/mcchrish/zenbones.nvim
 Plug 'mcchrish/zenbones.nvim'
+-- https://github.com/arzg/vim-colors-xcode
+Plug 'arzg/vim-colors-xcode'
 
 -------------------------------------------------
 -- FUN
@@ -110,3 +104,4 @@ Plug 'eandrju/cellular-automaton.nvim' -- eg: :CellularAutomaton make_it_rain
 -- - Automatically executes `filetype plugin indent on` and `syntax enable`.
 vim.call('plug#end')
 
+vim.cmd('filetype indent off')

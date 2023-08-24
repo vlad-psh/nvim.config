@@ -1,15 +1,15 @@
 require("themery").setup({
   themes = {
-    { name = "zenbones:light", colorscheme = "zenbones", before = "vim.opt.background = 'light'" },
-    { name = "zenwritten:light", colorscheme = "zenwritten", before = "vim.opt.background = 'light'" },
-    { name = "tokyobones:light", colorscheme = "tokyobones", before = "vim.opt.background = 'light'" },
-    { name = "onedark:light", colorscheme = "onedark", before = "vim.opt.background = 'light'" },
+    { name = "xcode:light:hc", colorscheme = "xcodelighthc" },
+    -- Some zenbones themes are not being loaded properly on startup unless we load default 'zenbones' before
+    { name = "zenbones:light", colorscheme = "zenbones", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'light'" },
+    { name = "zenwritten:light", colorscheme = "zenwritten", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'light'" },
+    { name = "tokyobones:light", colorscheme = "tokyobones", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'light'" },
     { name = "dayfox", colorscheme = "dayfox", },
-    { name = "onehalflight", colorscheme = "onehalflight", },
-    { name = "zenwritten:dark", colorscheme = "zenwritten", before = "vim.opt.background = 'dark'" },
-    { name = "rosebones:dark", colorscheme = "rosebones", before = "vim.opt.background = 'dark'" },
     { name = "terafox", colorscheme = "terafox" },
     { name = "nightly", colorscheme = "nightly" },
+    { name = "zenwritten:dark", colorscheme = "zenwritten", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
+    { name = "rosebones:dark", colorscheme = "rosebones", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
     { name = "mountaineer", colorscheme = "mountaineer", },
   },
   themeConfigFile = "~/.config/nvim/after/plugin/colorschemes.lua",
@@ -61,5 +61,5 @@ vim.cmd('set guicursor+=i:ver50-Cursor')
 
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme dayfox")
+vim.cmd("colorscheme xcodelighthc")
 -- end themery block
