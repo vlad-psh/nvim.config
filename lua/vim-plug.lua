@@ -29,7 +29,6 @@ Plug 'phaazon/hop.nvim'
 Plug 'mbbill/undotree'
 Plug 'folke/which-key.nvim'
 
-Plug 'github/copilot.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
