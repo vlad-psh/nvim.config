@@ -2,14 +2,15 @@ local actions = require "telescope.actions"
 local p_window = require "telescope.pickers.window"
 local layout_strategies = require('telescope.pickers.layout_strategies')
 
-layout_strategies.wide_layout = function(self, max_columns, max_lines, layout_config)
+layout_strategies.habahiro = function(self, max_columns, max_lines, layout_config)
   local initial_options = p_window.get_initial_window_options(self)
   local results = initial_options.results
   local prompt = initial_options.prompt
   local preview = initial_options.preview
 
   local xpadding = 2
-  local single_column = max_columns < 140 and true or false
+
+  local single_column = self.layout_config.force_single_column or max_columns < 140
   local height = math.min(max_lines - 2, 35)
   local width = max_columns - 2 - xpadding * 2
 
@@ -76,8 +77,8 @@ require('telescope').setup{
     sorting_strategy = 'ascending',
     results_title = false,
     border = true,
-    layout_strategy = "wide_layout",
-    path_display = "smart", -- slowest
+    layout_strategy = "habahiro",
+    path_display = { shorten = 1 },
     mappings = {
       i = {
         ["<C-j>"] = actions.move_selection_worse,
@@ -110,6 +111,12 @@ require('telescope').load_extension('fzf')
 -- Using fzf for the most of the things
 vim.keymap.set('n', '<C-f>', builtin.git_files, { desc = 'Find git ls-files' })
 vim.keymap.set('n', '<C-b>', builtin.git_branches, { desc = 'Git branches' })
+vim.keymap.set('n', '<C-/>', function() builtin.live_grep({
+  disable_coordinates = true,
+  path_display = { shorten = 1 },
+  layout_config = { force_single_column = true },
+}) end, { desc = 'Live grep' })
+
 -- <leader>v stands for "vim info"
 vim.keymap.set('n', '<leader>vc', builtin.keymaps, { desc = 'Find keymaps' })
 vim.keymap.set('n', '<leader>vy', builtin.registers, { desc = 'List registers' })

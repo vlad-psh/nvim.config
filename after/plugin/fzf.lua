@@ -9,6 +9,6 @@ vim.cmd('command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number
 
 vim.keymap.set('n', '<C-S-f>', function() vim.cmd("Files") end, { desc = 'Find files' })
 -- vim.keymap.set('n', '<C-S-f>', function() vim.fn['fzf#vim#files']('app') end, { desc = 'Find files in ./app' })
-vim.keymap.set('n', '<C-/>', function() vim.cmd("Rg") end, { desc = 'Grep string (fzf)' })
+-- vim.keymap.set('n', '<C-/>', function() vim.cmd("Rg") end, { desc = 'Grep string (fzf)' })
 vim.keymap.set('n', '<C-?>', function() vim.cmd("RG") end, { desc = 'Grep string (ripgrep)' })
 vim.keymap.set('n', '<leader>/f', function() vim.cmd("BCommits") end, { desc = 'Git commits for current buffer' })
