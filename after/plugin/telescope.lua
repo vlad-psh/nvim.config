@@ -1,3 +1,4 @@
+local actions = require "telescope.actions"
 local p_window = require "telescope.pickers.window"
 local layout_strategies = require('telescope.pickers.layout_strategies')
 
@@ -77,6 +78,19 @@ require('telescope').setup{
     border = true,
     layout_strategy = "wide_layout",
     path_display = "smart", -- slowest
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_worse,
+        ["<C-k>"] = actions.move_selection_better,
+        ["<C-S-k>"] = actions.preview_scrolling_up,
+        ["<C-S-j>"] = actions.preview_scrolling_down,
+        ["<C-S-h>"] = actions.preview_scrolling_left,
+        ["<C-S-l>"] = actions.preview_scrolling_right,
+        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<C-S-q>"] = actions.send_to_qflist + actions.open_qflist,
+        ["<esc>"] = actions.close, -- Disable "normal" mode while in Telescope
+      },
+    },
   },
   extensions = {
     fzf = {
@@ -94,9 +108,13 @@ local builtin = require('telescope.builtin')
 require('telescope').load_extension('fzf')
 
 -- Using fzf for the most of the things
-vim.keymap.set('n', '<leader>/c', builtin.keymaps, { desc = 'Find keymaps' })
-vim.keymap.set('n', '<leader>/y', builtin.registers, { desc = 'List registers' })
 vim.keymap.set('n', '<C-f>', builtin.git_files, { desc = 'Find git ls-files' })
 vim.keymap.set('n', '<C-b>', builtin.git_branches, { desc = 'Git branches' })
+-- <leader>v stands for "vim info"
+vim.keymap.set('n', '<leader>vc', builtin.keymaps, { desc = 'Find keymaps' })
+vim.keymap.set('n', '<leader>vy', builtin.registers, { desc = 'List registers' })
+vim.keymap.set('n', '<leader>vb', builtin.buffers, { desc = 'Buffers' })
+vim.keymap.set('n', '<leader>vh', builtin.help_tags, { desc = 'Help tags' })
+vim.keymap.set('n', '<leader>vt', builtin.filetypes, { desc = 'File types' })
 -- vim.keymap.set('n', '<leader>fic', builtin.git_commits, { desc = 'Git commits' })
--- vim.keymap.set('n', '<leader>fis', builtin.git_status, { desc = 'Git status/stage' })
+vim.keymap.set('n', '<C-g>', builtin.git_status, { desc = 'Git status/stage' })
