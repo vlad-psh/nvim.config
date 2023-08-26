@@ -8,67 +8,59 @@ layout_strategies.wide_layout = function(self, max_columns, max_lines, layout_co
   local preview = initial_options.preview
 
   local xpadding = 2
+  local single_column = max_columns < 140 and true or false
+  local height = math.min(max_lines - 2, 35)
+  local width = max_columns - 2 - xpadding * 2
 
-  if max_columns > 140 then
-    local height = math.min(max_lines - 2, 35)
+  prompt.height = 1
+  prompt.line = (max_lines - height) / 2 + 2
+  results.line = prompt.line + 2
+  prompt.col = 2 + xpadding
+  results.col = prompt.col
 
-    -- Height
-    prompt.height = 1
+  prompt.border = { 1, 1, 0, 1 }
+
+  if not self.previewer then
+    results.height = height
+
+    prompt.width = math.min(width, 70)
+    results.width = prompt.width
+
+    prompt.col = math.max(2 + xpadding, math.floor((max_columns - prompt.width) / 2))
+    results.col = prompt.col
+
+    prompt.borderchars =  { "═", "║", " ", "║", "╔", "╗", " ", " " }
+    results.borderchars = { "═", "║", "═", "║", "╠", "╣", "╝", "╚" }
+  elseif single_column then
+    results.height = math.floor(height * 0.6)
+    preview.height = height - (results.height + 4)
+
+    prompt.width = width
+    results.width = prompt.width
+    preview.width = prompt.width
+
+    preview.line = prompt.line + results.height + 3
+    preview.col = prompt.col
+
+    results.border = { 1, 1, 0, 1 }
+    prompt.borderchars =  { "═", "║", " ", "║", "╔", "╗", " ", " " }
+    results.borderchars = { "═", "║", "═", "║", "╠", "╣", "╣", "╠" }
+    preview.borderchars = { "═", "║", "═", "║", "╠", "╣", "╝", "╚" }
+  else
     results.height = height - 3
     preview.height = height - 1
 
-    -- Width
     prompt.width = math.min(math.floor(max_columns * 1.4), 60) - xpadding
     results.width = prompt.width
     preview.width = max_columns - prompt.width - 3 - xpadding * 2
 
-    -- Line
-    prompt.line = (max_lines - height) / 2 + 2
-    results.line = prompt.line + 2
     preview.line = prompt.line
-
-    -- Col
-    prompt.col = 2 + xpadding
-    results.col = prompt.col
     preview.col = prompt.width + 3 + xpadding
 
-    prompt.border = { 1, 1, 0, 1 }
-    results.border = { 1, 1, 1, 1 }
     preview.border = { 1, 1, 1, 0 }
-
     prompt.borderchars =  { "═", "║", " ", "║", "╔", "╦", " ", " " }
     results.borderchars = { "═", "║", "═", "║", "╠", "╣", "╩", "╚" }
     preview.borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" }
-  else
-    local height = math.min(max_lines - 2, 35)
-
-    -- Height
-    prompt.height = 1
-    results.height = math.floor(height * 0.6)
-    preview.height = height - (results.height + 4)
-
-    -- Width
-    prompt.width = max_columns - 2 - xpadding * 2
-    results.width = prompt.width
-    preview.width = prompt.width
-
-    -- Line
-    prompt.line = (max_lines - height) / 2 + 2
-    results.line = prompt.line + 2
-    preview.line = prompt.line + results.height + 3
-
-    -- Col
-    prompt.col = 2 + xpadding
-    results.col = prompt.col
-    preview.col = prompt.col
-
-    prompt.border = { 1, 1, 0, 1 }
-    results.border = { 1, 1, 1, 1 }
-    preview.border = { 1, 1, 1, 1 }
-
-    prompt.borderchars =  { "═", "║", " ", "║", "╔", "╗", " ", " " }
-    results.borderchars = { "═", "║", "═", "║", "╠", "╣", "╣", "╠" }
-    preview.borderchars = { "═", "║", "═", "║", " ", " ", "╝", "╚" }
   end
 
   return {
