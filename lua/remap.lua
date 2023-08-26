@@ -10,7 +10,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 
 vim.g.mapleader = " "
--- <leader>/ - fzf/telescope Search
 -- <leader>g - Git actions (stage, reset, etc)
 -- <leader>h - display some info (presumably in Hover window)
 -- <leader>l - LSP actions

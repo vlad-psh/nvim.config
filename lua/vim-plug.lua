@@ -16,9 +16,6 @@ vim.call('plug#begin')
 -- Extensions
 -------------------------------------------------
 
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-
 Plug 'nvim-lua/plenary.nvim' -- harpoon/telescope dependency
 Plug 'ThePrimeagen/harpoon'
 Plug('nvim-telescope/telescope.nvim', { branch = 'master' })

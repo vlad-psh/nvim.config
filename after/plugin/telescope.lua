@@ -77,12 +77,15 @@ require('telescope').setup{
     sorting_strategy = 'ascending',
     results_title = false,
     border = true,
+    scroll_strategy = "limit",
     layout_strategy = "habahiro",
     path_display = { shorten = 1 },
     mappings = {
       i = {
         ["<C-j>"] = actions.move_selection_worse,
         ["<C-k>"] = actions.move_selection_better,
+        ["<C-d>"] = actions.results_scrolling_down,
+        ["<C-u>"] = actions.results_scrolling_up,
         ["<C-S-k>"] = actions.preview_scrolling_up,
         ["<C-S-j>"] = actions.preview_scrolling_down,
         ["<C-S-h>"] = actions.preview_scrolling_left,
@@ -108,9 +111,11 @@ local builtin = require('telescope.builtin')
 -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
 require('telescope').load_extension('fzf')
 
--- Using fzf for the most of the things
 vim.keymap.set('n', '<C-f>', builtin.git_files, { desc = 'Find git ls-files' })
+vim.keymap.set('n', '<C-g>', builtin.git_status, { desc = 'Git status/stage' })
 vim.keymap.set('n', '<C-b>', builtin.git_branches, { desc = 'Git branches' })
+vim.keymap.set('n', '<C-S-b>', builtin.git_bcommits, { desc = 'Git commits for current buffer' })
+-- vim.keymap.set('n', '<leader>fic', builtin.git_commits, { desc = 'Git commits' })
 vim.keymap.set('n', '<C-/>', function() builtin.live_grep({
   disable_coordinates = true,
   path_display = { shorten = 1 },
@@ -123,5 +128,3 @@ vim.keymap.set('n', '<leader>vy', builtin.registers, { desc = 'List registers' }
 vim.keymap.set('n', '<leader>vb', builtin.buffers, { desc = 'Buffers' })
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, { desc = 'Help tags' })
 vim.keymap.set('n', '<leader>vt', builtin.filetypes, { desc = 'File types' })
--- vim.keymap.set('n', '<leader>fic', builtin.git_commits, { desc = 'Git commits' })
-vim.keymap.set('n', '<C-g>', builtin.git_status, { desc = 'Git status/stage' })
