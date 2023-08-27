@@ -40,16 +40,26 @@ local builtin = require('telescope.builtin')
 -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
 require('telescope').load_extension('fzf')
 
-vim.keymap.set('n', '<C-f>', function() builtin.git_files({ show_untracked = true }) end, { desc = 'Find git ls-files' })
+vim.keymap.set('n', '<C-f>', function()
+  builtin.git_files({
+    show_untracked = true
+  })
+end, { desc = 'Find git ls-files' })
 vim.keymap.set('n', '<C-g>', builtin.git_status, { desc = 'Git status/stage' })
-vim.keymap.set('n', '<C-b>', builtin.git_branches, { desc = 'Git branches' })
+vim.keymap.set('n', '<C-b>', function()
+  builtin.git_branches({
+    default_text = "!origin "
+  })
+end, { desc = 'Git branches' })
 vim.keymap.set('n', '<C-S-b>', builtin.git_bcommits, { desc = 'Git commits for current buffer' })
+vim.keymap.set('n', '<C-/>', function()
+  builtin.live_grep({
+    disable_coordinates = true,
+    path_display = { truncate = 1 },
+    layout_config = { force_single_column = true },
+  })
+end, { desc = 'Live grep' })
 -- vim.keymap.set('n', '<leader>fic', builtin.git_commits, { desc = 'Git commits' })
-vim.keymap.set('n', '<C-/>', function() builtin.live_grep({
-  disable_coordinates = true,
-  path_display = { truncate = 1 },
-  layout_config = { force_single_column = true },
-}) end, { desc = 'Live grep' })
 
 -- <leader>v stands for "vim info"
 vim.keymap.set('n', '<leader>vc', builtin.keymaps, { desc = 'Find keymaps' })
