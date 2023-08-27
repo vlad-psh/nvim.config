@@ -75,8 +75,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to the right window" })
 -- When create new split, focus on it
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l", { desc = "Vertical split (focus right)" })
 vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j", { desc = "Horizontal split (focus bottom)" })
--- netrw-explore
-vim.keymap.set("n", "-", ":Explore<CR>", { desc = "Open netrw-explore" })
 
 ---------------------------------------
 -- OTHER

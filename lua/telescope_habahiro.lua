@@ -10,6 +10,7 @@ layout_strategies.habahiro = function(self, max_columns, max_lines, layout_confi
   local xpadding = 2
 
   local single_column = self.layout_config.force_single_column or max_columns < 140
+  local max_results_width = self.layout_config.max_results_width or math.floor(max_columns * 0.4)
   local height = math.min(max_lines - 2, 35)
   local width = max_columns - 2 - xpadding * 2
 
@@ -51,7 +52,7 @@ layout_strategies.habahiro = function(self, max_columns, max_lines, layout_confi
     results.height = height - 3
     preview.height = height - 1
 
-    prompt.width = math.min(math.floor(max_columns * 1.4), 60) - xpadding
+    prompt.width = max_results_width - xpadding
     results.width = prompt.width
     preview.width = max_columns - prompt.width - 3 - xpadding * 2
 

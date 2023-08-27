@@ -20,6 +20,7 @@ Plug 'nvim-lua/plenary.nvim' -- harpoon/telescope dependency
 Plug 'ThePrimeagen/harpoon'
 Plug('nvim-telescope/telescope.nvim', { branch = 'master' })
 Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
+Plug('nvim-telescope/telescope-file-browser.nvim')
 
 Plug 'phaazon/hop.nvim'
 
