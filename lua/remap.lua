@@ -49,8 +49,8 @@ vim.keymap.set("t", "<C-p>", '<C-\\><C-N>pi', { noremap = true, desc = "Paste fr
 -- additional autocommand, which will add additional shift to the cursor
 vim.cmd("au InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])")
 
-vim.keymap.set("n", "[t", function() vim.cmd("tabprevious") end, { desc = "Previous tab" })
-vim.keymap.set("n", "]t", function() vim.cmd("tabnext") end, { desc = "Next tab" })
+vim.keymap.set("n", "[t", vim.cmd.tabprevious, { desc = "Previous tab" })
+vim.keymap.set("n", "]t", vim.cmd.tabnext, { desc = "Next tab" })
 
 -- PgUp/PgDn centers cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -64,9 +64,9 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- UI NAVIGATION
 ---------------------------------------
 -- Quickfix window
-vim.keymap.set("n", "<C-c>", function() vim.cmd("cnext") end, { desc = "quickfix: Next item" })
-vim.keymap.set("n", "<C-S-c>", function() vim.cmd("cprev") end, { desc = "quickfix: Previous item" })
-vim.keymap.set("n", "<C-w>c", function() vim.cmd("cclose") end, { desc = "quickfix: Close" })
+vim.keymap.set("n", "<C-c>", vim.cmd.cnext, { desc = "quickfix: Next item" })
+vim.keymap.set("n", "<C-S-c>", vim.cmd.cprev, { desc = "quickfix: Previous item" })
+vim.keymap.set("n", "<C-w>c", vim.cmd.cclose, { desc = "quickfix: Close" })
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to the bottom window" })

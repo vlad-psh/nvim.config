@@ -46,17 +46,12 @@ Plug 'tpope/vim-rhubarb' -- GitHub support for fugitive
 -------------------------------------------------
 
 Plug 'neovim/nvim-lspconfig'
-
--- mason is optional
-Plug('williamboman/mason.nvim', { ['do'] = ':MasonUpdate' })
-Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'folke/neodev.nvim'
 
 -- Autocompletion (all required)
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'L3MON4D3/LuaSnip'
-
-Plug('VonHeikemen/lsp-zero.nvim', { branch = 'v2.x' })
+-- Plug 'hrsh7th/nvim-cmp'
+-- Plug 'hrsh7th/cmp-nvim-lsp'
+-- Plug 'L3MON4D3/LuaSnip'
 
 -------------------------------------------------
 -- Look-n-feel

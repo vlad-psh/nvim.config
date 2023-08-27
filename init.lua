@@ -37,5 +37,6 @@ vim.g.dispatch_no_maps = 1
 -- Do not use 'lush' for zenbones colorscheme
 vim.g.bones_compat = 1
 
+require('utils')
 require('vim-plug')
 require('remap')

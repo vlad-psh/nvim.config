@@ -8,6 +8,7 @@ require('telescope').setup{
   defaults = {
     sorting_strategy = 'ascending',
     results_title = false,
+    winblend = 10,
     border = true,
     scroll_strategy = "limit",
     layout_strategy = "habahiro",
