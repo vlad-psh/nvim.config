@@ -9,6 +9,9 @@ local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.solargraph.setup({})
+lspconfig.volar.setup({
+  filetypes = {'typescript', 'javascript', 'vue', 'json'}
+})
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = 'LSP: Show hover' })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })

@@ -16,4 +16,7 @@ brew install lua-language-server
 
 # TypeScript
 npm install -g typescript typescript-language-server
+
+# Volar (vue.js)
+npm install -g @vue/language-server
 ```
