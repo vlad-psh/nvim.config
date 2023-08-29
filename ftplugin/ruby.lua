@@ -1,4 +1,4 @@
-vim.opt.makeprg = "rspec --require=~/.config/nvim/support/rspec_quickfix_formatter.rb % 2> /dev/null"
+vim.opt.makeprg = "bundle exec rspec --require=~/.config/nvim/support/rspec_quickfix_formatter.rb %"
 
 vim.opt.errorformat = " %#[E%t] %f:%l:%m"
 
