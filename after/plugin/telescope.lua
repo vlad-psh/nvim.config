@@ -45,6 +45,8 @@ require('telescope').setup{
         i = {
           ["<C-w>"] = function() vim.cmd('normal vbd') end,
           ["<C-c>"] = function() vim.cmd("stopinsert") end,
+          ["<C-t>"] = actions.select_tab,
+          ["<C-z>"] = fb_actions.goto_cwd,
           ["-"] = fb_actions.goto_parent_dir,
         },
         n = {
@@ -72,7 +74,6 @@ vim.keymap.set('n', '-', function()
     layout_config = { max_results_width = 75 },
   })
 end, { desc = 'File browser' })
-vim.keymap.set('n', '<leader>/f', ':Telescope find_files cwd=app', { desc = 'Find files...' })
 vim.keymap.set('n', '<C-g>', builtin.git_status, { desc = 'Git status/stage' })
 vim.keymap.set('n', '<C-b>', function()
   builtin.git_branches({
@@ -87,6 +88,8 @@ vim.keymap.set('n', '<C-/>', function()
     layout_config = { force_single_column = true },
   })
 end, { desc = 'Live grep' })
+vim.keymap.set('n', '<C-S-f>', ':Telescope find_files cwd=app', { desc = 'Find files...' })
+vim.keymap.set('n', '<C-?>', ':Telescope live_grep cwd=app', { desc = 'Live grep...' })
 -- vim.keymap.set('n', '<leader>fic', builtin.git_commits, { desc = 'Git commits' })
 
 -- <leader>v stands for "vim info"
