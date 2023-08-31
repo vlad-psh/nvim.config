@@ -48,10 +48,13 @@ Plug 'tpope/vim-rhubarb' -- GitHub support for fugitive
 Plug 'neovim/nvim-lspconfig'
 Plug 'folke/neodev.nvim'
 
--- Autocompletion (all required)
--- Plug 'hrsh7th/nvim-cmp'
--- Plug 'hrsh7th/cmp-nvim-lsp'
--- Plug 'L3MON4D3/LuaSnip'
+-- Autocompletion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 -------------------------------------------------
 -- Look-n-feel

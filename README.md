@@ -8,7 +8,7 @@
 
 ```shell
 # Ruby
-gem install --user-install solargraph
+gem install --user-install solargraph solargraph-rails
 
 # Lua
 # https://luals.github.io/#neovim-install 
@@ -19,4 +19,11 @@ npm install -g typescript typescript-language-server
 
 # Volar (vue.js)
 npm install -g @vue/language-server
+```
+
+~/.config/solargraph/config.yml
+
+```
+plugins:
+  - solargraph-rails
 ```
