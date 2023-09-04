@@ -27,11 +27,10 @@ Plug 'phaazon/hop.nvim'
 Plug 'mbbill/undotree'
 Plug 'folke/which-key.nvim'
 
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring' -- commenting support for files with multiple languages (vue, etc)
 Plug 'tpope/vim-dispatch'
+Plug 'numToStr/Comment.nvim'
 
 -------------------------------------------------
 -- GIT integration
