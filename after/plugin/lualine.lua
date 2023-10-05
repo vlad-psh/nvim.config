@@ -36,17 +36,4 @@ require('lualine').setup {
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
-  tabline = {
-    lualine_a = {},
-    lualine_b = {
-      {
-        'tabs',
-        mode = 2,
-      }
-    },
-    lualine_c = {},
-    lualine_x = {'diff'},
-    lualine_y = {'branch'},
-    lualine_z = {}
-  },
 }
