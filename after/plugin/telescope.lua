@@ -55,6 +55,13 @@ require('telescope').setup{
       },
     },
   },
+  pickers = {
+    git_branches = {
+      mappings = {
+        i = { ["<cr>"] = actions.git_switch_branch },
+      },
+    },
+  },
 }
 
 -- For fzf configuration options see:
@@ -64,7 +71,9 @@ require('telescope').load_extension('file_browser')
 
 vim.keymap.set('n', '<C-f>', function()
   builtin.git_files({
-    show_untracked = true
+    show_untracked = true,
+    path_display = { truncate = 1 },
+    layout_config = { force_single_column = true },
   })
 end, { desc = 'Find git ls-files' })
 vim.keymap.set('n', '-', function()
