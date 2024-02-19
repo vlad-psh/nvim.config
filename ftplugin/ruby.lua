@@ -2,4 +2,4 @@ vim.opt.makeprg = "bundle exec rspec --require=~/.config/nvim/support/rspec_quic
 
 vim.opt.errorformat = " %#[E%t] %f:%l:%m"
 
-vim.keymap.set("n", "<leader>x", function() vim.cmd("Make") end, { desc = "Run RSpec on current file" })
+vim.keymap.set("n", "<leader>*", function() vim.cmd("Make") end, { desc = "Run RSpec on current file" })

@@ -15,14 +15,15 @@ require('telescope').setup{
     path_display = { truncate = 1 },
     mappings = {
       i = {
-        ["<C-j>"] = actions.move_selection_worse,
-        ["<C-k>"] = actions.move_selection_better,
-        ["<C-d>"] = actions.results_scrolling_down,
-        ["<C-u>"] = actions.results_scrolling_up,
-        ["<C-S-k>"] = actions.preview_scrolling_up,
-        ["<C-S-j>"] = actions.preview_scrolling_down,
-        ["<C-S-h>"] = actions.preview_scrolling_left,
-        ["<C-S-l>"] = actions.preview_scrolling_right,
+        -- COLEMAK adapted
+        ["<C-e>"] = actions.move_selection_worse,
+        ["<C-u>"] = actions.move_selection_better,
+        -- ["<C-S-e>"] = actions.results_scrolling_down,
+        -- ["<C-S-u>"] = actions.results_scrolling_up,
+        ["<C-S-u>"] = actions.preview_scrolling_up,
+        ["<C-S-e>"] = actions.preview_scrolling_down,
+        ["<C-S-n>"] = actions.preview_scrolling_left,
+        ["<C-S-i>"] = actions.preview_scrolling_right,
         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-S-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<esc>"] = actions.close, -- Disable "normal" mode while in Telescope
