@@ -9,6 +9,7 @@ require("themery").setup({
     { name = "dayfox", colorscheme = "dayfox", },
     { name = "terafox", colorscheme = "terafox" },
     { name = "nightly", colorscheme = "nightly" },
+    { name = "noctis", colorscheme = "noctis" },
     { name = "zenwritten:dark", colorscheme = "zenwritten", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
     { name = "rosebones:dark", colorscheme = "rosebones", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
     { name = "mountaineer", colorscheme = "mountaineer", },

@@ -32,6 +32,8 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
 Plug 'numToStr/Comment.nvim'
 
+Plug 'github/copilot.vim'
+
 -------------------------------------------------
 -- GIT integration
 -------------------------------------------------
@@ -86,6 +88,9 @@ Plug 'EdenEast/nightfox.nvim'
 Plug 'mcchrish/zenbones.nvim'
 -- https://github.com/arzg/vim-colors-xcode
 Plug 'arzg/vim-colors-xcode'
+-- https://github.com/kartikp10/noctis.nvim
+Plug 'rktjmp/lush.nvim'
+Plug 'kartikp10/noctis.nvim'
 
 -------------------------------------------------
 -- FUN
