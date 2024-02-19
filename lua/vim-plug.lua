@@ -41,6 +41,7 @@ Plug 'github/copilot.vim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' -- GitHub support for fugitive
+Plug 'NeogitOrg/neogit'
 
 -------------------------------------------------
 -- LSP Support
