@@ -28,6 +28,16 @@ require('telescope').setup{
         ["<esc>"] = actions.close, -- Disable "normal" mode while in Telescope
       },
     },
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--hidden"
+    },
   },
   extensions = {
     fzf = {
@@ -95,6 +105,7 @@ vim.keymap.set('n', '<C-/>', function()
     disable_coordinates = true,
     path_display = { truncate = 1 },
     layout_config = { force_single_column = true },
+    glob_pattern = "!{.git,spec,spec/vcr_cassettes}/",
   })
 end, { desc = 'Live grep' })
 vim.keymap.set('n', '<C-S-f>', ':Telescope find_files cwd=app', { desc = 'Find files...' })
