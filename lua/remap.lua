@@ -1,6 +1,12 @@
 ---------------------------------------
 -- GENERAL REMAPS
 ---------------------------------------
+-- CTRL-combinations that may cause problems in terminal
+--   <C-i> - Tab
+--   <C-m> - Enter
+--   <C-[> - Escape
+--   <C-h> - Backspace (this one may work)
+
 vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 
@@ -112,11 +118,16 @@ vim.keymap.set({"n", "x"}, "k", "n", { desc = "Next search result", noremap = tr
 vim.keymap.set({"n", "x"}, "K", "N", { desc = "Previous search result", noremap = true })
 
 -------------------------------------------
--- M <- prev next -> Y
+-- M <- prev || next -> Y
+-- NOTE: Do not map <Ctrl+M> to avoid conflict with <Enter>
 vim.keymap.set("n", "m", "[")
 vim.keymap.set("n", "y", "]")
-vim.keymap.set("n", "M", ",", { desc = "Repeat last movement reversed", noremap = true })
-vim.keymap.set("n", "Y", ";", { desc = "Repeat last movement", noremap = true })
+-- vim.keymap.set("n", "M", ",", { desc = "Repeat last movement reversed", noremap = true })
+-- vim.keymap.set("n", "Y", ";", { desc = "Repeat last movement", noremap = true })
+vim.keymap.set("n", ",", ";", { desc = "Repeat last movement", noremap = true })
+-- Undo/Redo
+vim.keymap.set("n", "M", "u", { desc = "Undo", noremap = true })
+vim.keymap.set("n", "Y", "<C-r>", { desc = "Redo", noremap = true })
 -- Tabs
 vim.keymap.set("n", "mt", vim.cmd.tabprevious, { desc = "Previous tab" })
 vim.keymap.set("n", "yt", vim.cmd.tabnext, { desc = "Next tab" })
@@ -126,6 +137,3 @@ vim.keymap.set("n", "yp", "<C-i>", { desc = "Next cursor position", noremap = tr
 -- Quickfix list
 vim.keymap.set("n", "yq", vim.cmd.cnext, { desc = "quickfix: Next item" })
 vim.keymap.set("n", "mq", vim.cmd.cprev, { desc = "quickfix: Previous item" })
--- Undo/Redo
-vim.keymap.set("n", "<C-m>", "u", { desc = "Undo", noremap = true })
-vim.keymap.set("n", "<C-y>", "<C-r>", { desc = "Redo", noremap = true })

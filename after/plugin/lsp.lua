@@ -25,7 +25,7 @@ vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { desc = 'LSP: Go to type
 -- Floating windows
 vim.keymap.set("n", "I", vim.lsp.buf.hover, { desc = 'LSP: Show hover' })
 vim.keymap.set("n", "<leader>od", vim.diagnostic.open_float, { desc = 'Open diagnostics' })
-vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, { desc = 'LSP: Show signature help' })
+vim.keymap.set("i", "<C-l>", vim.lsp.buf.signature_help, { desc = 'LSP: Show signature help' })
 -- Quickfix lists
 vim.keymap.set("n", "<leader>qr", vim.lsp.buf.references, { desc = 'LSP: List all references' })
 vim.keymap.set("n", "<leader>qs", vim.lsp.buf.workspace_symbol, { desc = 'LSP: List all workspace symbols' })
