@@ -87,28 +87,22 @@ vim.keymap.set("n", "<leader>c", function() vim.cmd("Themery") end, { desc = "Th
 -- COLEMAK
 ---------------------------------------
 -- Similar to WASD arrow keys
-vim.keymap.set({"n", "x"}, "u", "k", { desc = "Move up", noremap = true })
-vim.keymap.set({"n", "x"}, "n", "h", { desc = "Move left", noremap = true })
-vim.keymap.set({"n", "x"}, "e", "j", { desc = "Move down", noremap = true })
-vim.keymap.set({"n", "x"}, "i", "l", { desc = "Move right", noremap = true })
+vim.keymap.set({"n", "x", "o"}, "u", "<up>",    { noremap = true })
+vim.keymap.set({"n", "x", "o"}, "n", "<left>",  { noremap = true })
+vim.keymap.set({"n", "x", "o"}, "e", "<down>",  { noremap = true })
+vim.keymap.set({"n", "x", "o"}, "i", "<right>", { noremap = true })
 
 -- PgUp/PgDn centers cursor
 vim.keymap.set("n", "U", "<C-u>zz")
 vim.keymap.set("n", "E", "<C-d>zz")
--- vim.keymap.set("n", "U", "w", { desc = "", noremap = true })
--- vim.keymap.set("n", "N", "w", { desc = "", noremap = true })
--- vim.keymap.set("n", "E", "w", { desc = "", noremap = true })
--- vim.keymap.set("n", "I", "w", { desc = "", noremap = true })
 
--- Now we lost the following keys, so we need to remap them:
---   'n' (next search result) -> 'h'
---   'e' (move to the end of next word) - usually I prefer to use 'w' instead
---   'u' (undo; page up; etc) -> 'z'
---   'i' (insert mode; etc)   -> 'k'
--- We also have 'hjkl' keys free, so we can use them
-
-vim.keymap.set("n", "h", "i", { desc = "Insert mode (before cursor)", noremap = true })
-vim.keymap.set("n", "H", "I", { desc = "Append to the end of the line", noremap = true })
+-- Reproduce lost 'i' key, sacrificed for the 'right' movement
+vim.keymap.set("n", "s", "i", { desc = "Insert mode (before cursor)", noremap = true })
+vim.keymap.set("n", "S", "I", { desc = "Append to the end of the line", noremap = true })
+-- inneR text objects. E.g. dip (delete inner paragraph) is now drp
+vim.keymap.set({"x", "o"}, "r", "i", { desc = "Inner text object", noremap = true })
+vim.cmd('xnoremap <nowait> i <right>')
+vim.keymap.set("n", "vi", "v<right>")
 
 -- 'j' is the same position as 'y' in QWERTY, which is great
 vim.keymap.set({"n", "x"}, "j", "y", { desc = "Yank", noremap = true })
