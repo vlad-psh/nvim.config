@@ -14,7 +14,7 @@ require("themery").setup({
     { name = "rosebones:dark", colorscheme = "rosebones", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
     { name = "mountaineer", colorscheme = "mountaineer", },
   },
-  themeConfigFile = "~/.config/nvim/after/plugin/colorschemes.lua",
+  themeConfigFile = "~/.config/nvim/lua/theme.lua",
   livePreview = true,
 })
 
@@ -61,7 +61,4 @@ vim.cmd('set guicursor+=i:ver50-Cursor')
 -- let g:onedark_config = { 'style': 'light' }
 -- set background=light
 
--- Themery block
--- This block will be replaced by Themery.
-vim.cmd("colorscheme xcodemod")
--- end themery block
+require('theme')

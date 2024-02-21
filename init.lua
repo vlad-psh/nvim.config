@@ -37,6 +37,8 @@ vim.g.dispatch_no_maps = 1
 -- Do not use 'lush' for zenbones colorscheme
 vim.g.bones_compat = 1
 
+vim.cmd('filetype indent off')
+
 require('utils')
 require('vim-plug')
 require('remap')

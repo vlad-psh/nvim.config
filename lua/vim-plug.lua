@@ -103,5 +103,3 @@ Plug 'eandrju/cellular-automaton.nvim' -- eg: :CellularAutomaton make_it_rain
 -- Initialize plugin system
 -- - Automatically executes `filetype plugin indent on` and `syntax enable`.
 vim.call('plug#end')
-
-vim.cmd('filetype indent off')
