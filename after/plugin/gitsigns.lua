@@ -30,14 +30,13 @@ require('gitsigns').setup{
 
     map('n', '<leader>gS', gs.stage_buffer, { desc = 'Stage buffer' })
     map('n', '<leader>gR', gs.reset_buffer, { desc = 'Reset buffer' })
-    -- map('n', '<leader>hd', gs.diffthis)
-    -- map('n', '<leader>hD', function() gs.diffthis('~') end)
 
-    -- '<leader>h' git non-destructive actions
-    map('n', '<leader>hb', function() gs.blame_line{full=true} end, { desc = 'Blame line' })
-    -- map('n', '<leader>hb', gs.toggle_current_line_blame)
-    map('n', '<leader>hx', gs.toggle_deleted, { desc = 'Toggle show deleted lines' })
-    map('n', '<leader>hh', gs.preview_hunk, { desc = 'Preview hunk' })
+    -- Info
+    map('n', '<leader>ib', function() gs.blame_line{full=true} end, { desc = 'Blame line' })
+    map('n', '<leader>ih', gs.preview_hunk, { desc = 'Preview hunk' })
+    -- UI changes
+    map('n', '<leader>ub', gs.toggle_current_line_blame)
+    map('n', '<leader>ud', gs.toggle_deleted, { desc = 'Toggle show deleted lines' })
 
     -- Text object
     -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')

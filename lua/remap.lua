@@ -5,9 +5,13 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 
 vim.g.mapleader = " "
--- <leader>g - Git actions (stage, reset, etc)
--- <leader>h - display some info (presumably in Hover window)
--- <leader>l - LSP actions
+-- <leader>i - Show floating window with some info
+-- <leader>q - Show/generate quickfix list
+-- <leader>x - Execute an action
+-- <leader>u - UI changes (eg: show/hide deleted lines, etc)
+-- / - Search utilities (telescope, etc)
+vim.keymap.set({ "n", "v" }, "//", "/", { noremap = true })
+vim.keymap.set({ "n", "v" }, "??", "?", { noremap = true })
 
 ---------------------------------------
 -- TEXT MANIPULATION
@@ -54,8 +58,6 @@ vim.keymap.set("n", "K", "Nzzzv")
 -- UI NAVIGATION
 ---------------------------------------
 -- Quickfix window
-vim.keymap.set("n", "<C-c>", vim.cmd.cnext, { desc = "quickfix: Next item" })
-vim.keymap.set("n", "<C-S-c>", vim.cmd.cprev, { desc = "quickfix: Previous item" })
 vim.keymap.set("n", "<C-w>c", vim.cmd.cclose, { desc = "quickfix: Close" })
 -- Window navigation (COLEMAK adapted)
 vim.keymap.set("n", "<C-n>", "<C-w>h", { desc = "Go to the left window" })
@@ -104,18 +106,26 @@ vim.keymap.set("n", "H", "I", { desc = "Append to the end of the line", noremap 
 
 -- 'j' is the same position as 'y' in QWERTY, which is great
 vim.keymap.set({"n", "x"}, "j", "y", { desc = "Yank", noremap = true })
-vim.keymap.set({"n", "x"}, "J", "Y", { desc = "Yank", noremap = true })
+vim.keymap.set({"n", "x"}, "J", "Y", { desc = "Yank line", noremap = true })
 
-vim.keymap.set("n", "k", "n", { desc = "Next search result", noremap = true })
-vim.keymap.set("n", "K", "N", { desc = "Previous search result", noremap = true })
+vim.keymap.set({"n", "x"}, "k", "n", { desc = "Next search result", noremap = true })
+vim.keymap.set({"n", "x"}, "K", "N", { desc = "Previous search result", noremap = true })
 
-vim.keymap.set("n", "L", "u", { desc = "Undo", noremap = true })
-vim.keymap.set("n", "Y", "<C-r>", { desc = "Redo", noremap = true })
-vim.keymap.set("n", "l", "[")
+-------------------------------------------
+-- M <- prev next -> Y
+vim.keymap.set("n", "m", "[")
 vim.keymap.set("n", "y", "]")
-vim.keymap.set("n", "lt", vim.cmd.tabprevious, { desc = "Previous tab" })
+vim.keymap.set("n", "M", ",", { desc = "Repeat last movement reversed", noremap = true })
+vim.keymap.set("n", "Y", ";", { desc = "Repeat last movement", noremap = true })
+-- Tabs
+vim.keymap.set("n", "mt", vim.cmd.tabprevious, { desc = "Previous tab" })
 vim.keymap.set("n", "yt", vim.cmd.tabnext, { desc = "Next tab" })
-
--- vim.keymap.set("n", "j", "z", { noremap = true })
--- Now we lost the following keys, so we need to remap them too:
---   'x' (delete current character; etc)
+-- Jumplist
+vim.keymap.set("n", "mp", "<C-o>", { desc = "Previous cursor position", noremap = true })
+vim.keymap.set("n", "yp", "<C-i>", { desc = "Next cursor position", noremap = true })
+-- Quickfix list
+vim.keymap.set("n", "yq", vim.cmd.cnext, { desc = "quickfix: Next item" })
+vim.keymap.set("n", "mq", vim.cmd.cprev, { desc = "quickfix: Previous item" })
+-- Undo/Redo
+vim.keymap.set("n", "<C-m>", "u", { desc = "Undo", noremap = true })
+vim.keymap.set("n", "<C-y>", "<C-r>", { desc = "Redo", noremap = true })

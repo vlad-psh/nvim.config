@@ -16,14 +16,14 @@ require('telescope').setup{
     mappings = {
       i = {
         -- COLEMAK adapted
-        ["<C-e>"] = actions.move_selection_worse,
-        ["<C-u>"] = actions.move_selection_better,
+        -- ["<C-e>"] = actions.move_selection_worse,
+        -- ["<C-u>"] = actions.move_selection_better,
         -- ["<C-S-e>"] = actions.results_scrolling_down,
         -- ["<C-S-u>"] = actions.results_scrolling_up,
-        ["<C-S-u>"] = actions.preview_scrolling_up,
-        ["<C-S-e>"] = actions.preview_scrolling_down,
-        ["<C-S-n>"] = actions.preview_scrolling_left,
-        ["<C-S-i>"] = actions.preview_scrolling_right,
+        ["<C-u>"] = actions.preview_scrolling_up,
+        ["<C-e>"] = actions.preview_scrolling_down,
+        ["<C-n>"] = actions.preview_scrolling_left,
+        ["<C-i>"] = actions.preview_scrolling_right,
         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-S-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<esc>"] = actions.close, -- Disable "normal" mode while in Telescope
@@ -80,28 +80,24 @@ require('telescope').setup{
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('file_browser')
 
-vim.keymap.set('n', '<C-f>', function()
+---------------------------
+-- File finders
+---------------------------
+-- /f - Search with modified settings (eg: app directory only)
+-- /F - Search with default settings (eg: all directories)
+-- ?f - Command prompt to search with custom settings
+vim.keymap.set('n', '/f', function()
   builtin.git_files({
     show_untracked = true,
     path_display = { truncate = 1 },
     layout_config = { force_single_column = true },
   })
 end, { desc = 'Find git ls-files' })
-vim.keymap.set('n', '-', function()
-  file_browser({
-    path = "%:p:h",
-    select_buffer = true,
-    layout_config = { max_results_width = 75 },
-  })
-end, { desc = 'File browser' })
-vim.keymap.set('n', '<C-g>', builtin.git_status, { desc = 'Git status/stage' })
-vim.keymap.set('n', '<C-b>', function()
-  builtin.git_branches({
-    default_text = "!origin "
-  })
-end, { desc = 'Git branches' })
-vim.keymap.set('n', '<C-S-b>', builtin.git_bcommits, { desc = 'Git commits for current buffer' })
-vim.keymap.set('n', '<C-/>', function()
+vim.keymap.set('n', '/F', builtin.git_files, { desc = 'Find files (default)' })
+vim.keymap.set('n', '?f', ':Telescope find_files cwd=app', { desc = 'Find files...' })
+
+-- GREP
+vim.keymap.set('n', '/g', function()
   builtin.live_grep({
     disable_coordinates = true,
     path_display = { truncate = 1 },
@@ -109,13 +105,37 @@ vim.keymap.set('n', '<C-/>', function()
     glob_pattern = "!{.git,spec,spec/vcr_cassettes}/",
   })
 end, { desc = 'Live grep' })
-vim.keymap.set('n', '<C-S-f>', ':Telescope find_files cwd=app', { desc = 'Find files...' })
-vim.keymap.set('n', '<C-?>', ':Telescope live_grep cwd=app', { desc = 'Live grep...' })
--- vim.keymap.set('n', '<leader>fic', builtin.git_commits, { desc = 'Git commits' })
+vim.keymap.set('n', '/G', builtin.live_grep, { desc = 'Live grep (default)' })
+vim.keymap.set('n', '?g', ':Telescope live_grep cwd=app', { desc = 'Live grep...' })
 
--- <leader>v stands for "vim info"
-vim.keymap.set('n', '<leader>vc', builtin.keymaps, { desc = 'Find keymaps' })
-vim.keymap.set('n', '<leader>vy', builtin.registers, { desc = 'List registers' })
-vim.keymap.set('n', '<leader>vb', builtin.buffers, { desc = 'Buffers' })
-vim.keymap.set('n', '<leader>vh', builtin.help_tags, { desc = 'Help tags' })
-vim.keymap.set('n', '<leader>vt', builtin.filetypes, { desc = 'File types' })
+---------------------------
+-- References
+---------------------------
+vim.keymap.set('n', '/m', builtin.keymaps, { desc = 'Find keymaps' })
+vim.keymap.set('n', '/h', builtin.help_tags, { desc = 'Help tags' })
+vim.keymap.set('n', '/t', builtin.filetypes, { desc = 'File types' })
+vim.keymap.set('n', '/y', builtin.registers, { desc = 'List registers' })
+vim.keymap.set('n', '/u', builtin.buffers, { desc = 'Buffers' })
+
+---------------------------
+-- GIT pickers
+---------------------------
+vim.keymap.set('n', '/s', builtin.git_status, { desc = 'Git status/stage' })
+vim.keymap.set('n', '/c', builtin.git_bcommits, { desc = 'Git commits for current buffer' })
+-- vim.keymap.set('n', '<leader>fic', builtin.git_commits, { desc = 'Git commits' })
+vim.keymap.set('n', '/b', function()
+  builtin.git_branches({
+    default_text = "!origin "
+  })
+end, { desc = 'Git branches' })
+
+---------------------------
+-- File browser
+---------------------------
+vim.keymap.set('n', '-', function()
+  file_browser({
+    path = "%:p:h",
+    select_buffer = true,
+    layout_config = { max_results_width = 75 },
+  })
+end, { desc = 'File browser' })
