@@ -15,7 +15,6 @@ require('telescope').setup{
     path_display = { truncate = 1 },
     mappings = {
       i = {
-        -- COLEMAK adapted
         -- ["<C-e>"] = actions.move_selection_worse,
         -- ["<C-u>"] = actions.move_selection_better,
         -- ["<C-S-e>"] = actions.results_scrolling_down,
@@ -59,6 +58,7 @@ require('telescope').setup{
           ["<C-t>"] = actions.select_tab,
           ["<C-z>"] = fb_actions.goto_cwd,
           ["-"] = fb_actions.goto_parent_dir,
+          ["<bs>"] = false, -- Unmap Backspace (<bs> is case-sensitive)
         },
         n = {
           ["-"] = fb_actions.goto_parent_dir,

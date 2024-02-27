@@ -12,6 +12,11 @@ vim.api.nvim_create_autocmd('FileType', {
       vim.keymap.set(mode, l, r, opts)
     end
 
+    map("n", "u", "<Up>")
+    map("n", "e", "<Down>")
+    map("n", "n", "<Left>")
+    map("n", "i", "<Right>")
+
     map("n", "<leader>w", function() vim.cmd("Git pull --rebase") end, { desc = "git pull --rebase" })
     map("n", "<leader>p", function() vim.cmd("Git push --force-with-lease") end, { desc = "git push --force-with-lease" })
     map("n", "<leader>P", function() vim.cmd("Git push -u origin") end, { desc = "git push -u origin" })

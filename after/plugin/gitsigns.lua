@@ -37,6 +37,9 @@ require('gitsigns').setup{
     -- UI changes
     map('n', '<leader>ub', gs.toggle_current_line_blame)
     map('n', '<leader>ud', gs.toggle_deleted, { desc = 'Toggle show deleted lines' })
+    -- Movements
+    map('n', 'ms', gs.prev_hunk, { desc = 'Git: Jump to previous hunk' })
+    map('n', 'ys', gs.next_hunk, { desc = 'Git: Jump to next hunk' })
 
     -- Text object
     -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
