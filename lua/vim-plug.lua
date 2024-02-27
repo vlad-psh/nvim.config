@@ -92,6 +92,8 @@ Plug 'arzg/vim-colors-xcode'
 -- https://github.com/kartikp10/noctis.nvim
 Plug 'rktjmp/lush.nvim'
 Plug 'kartikp10/noctis.nvim'
+-- https://github.com/rebelot/kanagawa.nvim
+Plug 'rebelot/kanagawa.nvim'
 
 -------------------------------------------------
 -- FUN

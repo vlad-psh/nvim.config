@@ -13,6 +13,8 @@ require("themery").setup({
     { name = "zenwritten:dark", colorscheme = "zenwritten", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
     { name = "rosebones:dark", colorscheme = "rosebones", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
     { name = "mountaineer", colorscheme = "mountaineer", },
+    { name = "kanagawa-dragon", colorscheme = "kanagawa-dragon", },
+    { name = "kanagawa-wave", colorscheme = "kanagawa-wave", },
   },
   themeConfigFile = "~/.config/nvim/lua/theme.lua",
   livePreview = true,
