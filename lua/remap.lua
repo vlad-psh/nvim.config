@@ -52,9 +52,8 @@ vim.keymap.set("t", "<C-p>", '<C-\\><C-N>pi', { noremap = true, desc = "Paste fr
 -- TEXT NAVIGATION
 ---------------------------------------
 
--- BUG: when this config is reloaded multiple times, each reload will add an
--- additional autocommand, which will add additional shift to the cursor
-vim.cmd("au InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])")
+-- When leaving insert mode, do not move the cursor one character forward
+vim.cmd("autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])")
 
 -- Search result is always in the center of the screen (COLEMAK adapted)
 vim.keymap.set("n", "k", "nzzzv")
@@ -97,11 +96,11 @@ vim.keymap.set("n", "U", "<C-u>zz")
 vim.keymap.set("n", "E", "<C-d>zz")
 
 -- Reproduce lost 'i' key, sacrificed for the 'right' movement
-vim.keymap.set("n", "s", "i", { desc = "Insert mode (before cursor)", noremap = true })
-vim.keymap.set("n", "S", "I", { desc = "Append to the end of the line", noremap = true })
--- inneR text objects. E.g. dip (delete inner paragraph) is now drp
-vim.keymap.set({"x", "o"}, "r", "i", { desc = "Inner text object", noremap = true })
-vim.cmd('xnoremap <nowait> i <right>')
+vim.keymap.set("n", "l", "i", { desc = "Insert mode (before cursor)", noremap = true })
+vim.keymap.set("n", "L", "I", { desc = "Append to the end of the line", noremap = true })
+-- Inner text objects. E.g. dip (delete inner paragraph) is now dlp
+vim.keymap.set({"x", "o"}, "l", "i", { desc = "Inner text object", noremap = true })
+vim.cmd("autocmd! BufRead * xnoremap <buffer> <nowait> i <right>")
 vim.keymap.set("n", "vi", "v<right>")
 
 -- 'j' is the same position as 'y' in QWERTY, which is great
