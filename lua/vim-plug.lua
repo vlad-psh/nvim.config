@@ -94,6 +94,8 @@ Plug 'rktjmp/lush.nvim'
 Plug 'kartikp10/noctis.nvim'
 -- https://github.com/rebelot/kanagawa.nvim
 Plug 'rebelot/kanagawa.nvim'
+-- https://github.com/Domeee/mosel.nvim
+Plug 'Domeee/mosel.nvim'
 
 -------------------------------------------------
 -- FUN
