@@ -23,8 +23,8 @@ vim.keymap.set({ "n", "v" }, "??", "?", { noremap = true })
 -- TEXT MANIPULATION
 ---------------------------------------
 -- Move lines up and down (COLEMAK adapted)
-vim.keymap.set("v", "E", ":m '>+1<CR>gv=gv", { desc = "Move one line down" })
-vim.keymap.set("v", "U", ":m '<-2<CR>gv=gv", { desc = "Move one line up" })
+vim.keymap.set("v", "N", ":m '>+1<CR>gv=gv", { desc = "Move one line down" })
+vim.keymap.set("v", "E", ":m '<-2<CR>gv=gv", { desc = "Move one line up" })
 
 vim.keymap.set("n", "D", [["_d]], { desc = "Delete without yanking" })
 vim.keymap.set("n", "<C-d>", "D", { desc = "Delete to the end of the line", noremap = true })
@@ -65,14 +65,14 @@ vim.keymap.set("n", "K", "Nzzzv")
 -- Quickfix window
 vim.keymap.set("n", "<C-w>c", vim.cmd.cclose, { desc = "quickfix: Close" })
 -- Window navigation (COLEMAK adapted)
-vim.keymap.set("n", "<C-n>", "<C-w>h", { desc = "Go to the left window" })
-vim.keymap.set("n", "<C-e>", "<C-w>j", { desc = "Go to the bottom window" })
-vim.keymap.set("n", "<C-u>", "<C-w>k", { desc = "Go to the upper window" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
+vim.keymap.set("n", "<C-n>", "<C-w>j", { desc = "Go to the bottom window" })
+vim.keymap.set("n", "<C-e>", "<C-w>k", { desc = "Go to the upper window" })
 vim.keymap.set("n", "<C-i>", "<C-w>l", { desc = "Go to the right window" })
 -- When create new split, focus on it
 -- FIX OR REMOVE
--- vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l", { desc = "Vertical split (focus right)" })
--- vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j", { desc = "Horizontal split (focus bottom)" })
+vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l", { desc = "Vertical split (focus right)" })
+vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j", { desc = "Horizontal split (focus bottom)" })
 
 ---------------------------------------
 -- OTHER
@@ -85,15 +85,16 @@ vim.keymap.set("n", "<leader>c", function() vim.cmd("Themery") end, { desc = "Th
 ---------------------------------------
 -- COLEMAK
 ---------------------------------------
--- Similar to WASD arrow keys
-vim.keymap.set({"n", "x", "o"}, "u", "<up>",    { noremap = true })
-vim.keymap.set({"n", "x", "o"}, "n", "<left>",  { noremap = true })
-vim.keymap.set({"n", "x", "o"}, "e", "<down>",  { noremap = true })
+vim.keymap.set({"n", "x", "o"}, "u", "",  { noremap = true })
+
+vim.keymap.set({"n", "x", "o"}, "h", "<left>",  { noremap = true })
+vim.keymap.set({"n", "x", "o"}, "n", "<down>",  { noremap = true })
+vim.keymap.set({"n", "x", "o"}, "e", "<up>",    { noremap = true })
 vim.keymap.set({"n", "x", "o"}, "i", "<right>", { noremap = true })
 
 -- PgUp/PgDn centers cursor
-vim.keymap.set("n", "U", "<C-u>zz")
-vim.keymap.set("n", "E", "<C-d>zz")
+vim.keymap.set("n", "E", "<C-u>zz")
+vim.keymap.set("n", "N", "<C-d>zz")
 
 -- Reproduce lost 'i' key, sacrificed for the 'right' movement
 vim.keymap.set("n", "l", "i", { desc = "Insert mode (before cursor)", noremap = true })
@@ -106,6 +107,8 @@ vim.keymap.set("n", "vi", "v<right>")
 -- 'j' is the same position as 'y' in QWERTY, which is great
 vim.keymap.set({"n", "x"}, "j", "y", { desc = "Yank", noremap = true })
 vim.keymap.set({"n", "x"}, "J", "Y", { desc = "Yank line", noremap = true })
+
+vim.keymap.set({"n", "x"}, "<C-;>", "J", { desc = "Join lines", noremap = true })
 
 vim.keymap.set({"n", "x"}, "k", "n", { desc = "Next search result", noremap = true })
 vim.keymap.set({"n", "x"}, "K", "N", { desc = "Previous search result", noremap = true })

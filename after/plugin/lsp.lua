@@ -23,8 +23,9 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'LSP: Go to definitio
 vim.keymap.set("n", "gm", vim.lsp.buf.implementation, { desc = 'LSP: Go to implementation' })
 vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { desc = 'LSP: Go to type_definition' })
 -- Floating windows
-vim.keymap.set("n", "I", vim.lsp.buf.hover, { desc = 'LSP: Show hover' })
-vim.keymap.set("n", "<leader>od", vim.diagnostic.open_float, { desc = 'Open diagnostics' })
+vim.keymap.set("n", "<leader>ii", vim.lsp.buf.hover, { desc = 'LSP: Show hover' })
+vim.keymap.set("n", "<leader>id", vim.diagnostic.open_float, { desc = 'LSP: Open diagnostics' })
+vim.keymap.set("n", "<leader>is", vim.lsp.buf.signature_help, { desc = 'LSP: Show signature help' })
 vim.keymap.set("i", "<C-l>", vim.lsp.buf.signature_help, { desc = 'LSP: Show signature help' })
 -- Quickfix lists
 vim.keymap.set("n", "<leader>qr", vim.lsp.buf.references, { desc = 'LSP: List all references' })
@@ -44,11 +45,11 @@ cmp.setup({
   },
   mapping = {
     -- COLEMAK adapted
-    ['<C-e>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-    ['<C-u>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-    ['<C-S-e>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-S-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-h>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }),
+    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    ['<C-e>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+    ['<C-S-n>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-S-e>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-o>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }),
     ['<C-q>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
