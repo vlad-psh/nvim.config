@@ -1,3 +1,6 @@
+-- local customSearchColors = "vim.cmd('hi Search guibg=#ffffff guifg=black'); vim.cmd('hi CurSearch guibg=#00ff00 guifg=black')"
+local customSearchColors = "vim.cmd('hi CurSearch guibg=#fe9e3b guifg=black')"
+
 require("themery").setup({
   themes = {
     { name = "xcode:mod", colorscheme = "xcodemod" },
@@ -13,8 +16,8 @@ require("themery").setup({
     { name = "zenwritten:dark", colorscheme = "zenwritten", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
     { name = "rosebones:dark", colorscheme = "rosebones", before = "vim.cmd('colorscheme zenbones'); vim.opt.background = 'dark'" },
     { name = "mountaineer", colorscheme = "mountaineer" },
-    { name = "kanagawa-dragon", colorscheme = "kanagawa-dragon" },
-    { name = "kanagawa-wave", colorscheme = "kanagawa-wave" },
+    { name = "kanagawa-dragon", colorscheme = "kanagawa-dragon", after = customSearchColors },
+    { name = "kanagawa-wave", colorscheme = "kanagawa-wave", after = customSearchColors },
     { name = "mosel", colorscheme = "mosel" },
   },
   themeConfigFile = "~/.config/nvim/lua/theme.lua",
