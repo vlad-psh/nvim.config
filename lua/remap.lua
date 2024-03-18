@@ -97,16 +97,13 @@ vim.keymap.set("n", "E", "<C-u>zz")
 vim.keymap.set("n", "N", "<C-d>zz")
 
 -- Reproduce lost 'i' key, sacrificed for the 'right' movement
-vim.keymap.set("n", "l", "i", { desc = "Insert mode (before cursor)", noremap = true })
-vim.keymap.set("n", "L", "I", { desc = "Append to the end of the line", noremap = true })
--- Inner text objects. E.g. dip (delete inner paragraph) is now dlp
-vim.keymap.set({"x", "o"}, "l", "i", { desc = "Inner text object", noremap = true })
+-- 'u' in COLEMAK is on the same place as 'i' in QWERTY
+vim.keymap.set("n", "u", "i", { desc = "Insert mode (before cursor)", noremap = true })
+vim.keymap.set("n", "U", "I", { desc = "Append to the end of the line", noremap = true })
+-- Inner text objects. E.g. dip (delete inner paragraph) is now dup
+vim.keymap.set({"x", "o"}, "u", "i", { desc = "Inner text object", noremap = true })
 vim.cmd("autocmd! BufRead * xnoremap <buffer> <nowait> i <right>")
 vim.keymap.set("n", "vi", "v<right>")
-
--- 'j' is the same position as 'y' in QWERTY, which is great
-vim.keymap.set({"n", "x"}, "j", "y", { desc = "Yank", noremap = true })
-vim.keymap.set({"n", "x"}, "J", "Y", { desc = "Yank line", noremap = true })
 
 vim.keymap.set({"n", "x"}, "<C-;>", "J", { desc = "Join lines", noremap = true })
 
@@ -114,22 +111,23 @@ vim.keymap.set({"n", "x"}, "k", "n", { desc = "Next search result", noremap = tr
 vim.keymap.set({"n", "x"}, "K", "N", { desc = "Previous search result", noremap = true })
 
 -------------------------------------------
--- M <- prev || next -> Y
--- NOTE: Do not map <Ctrl+M> to avoid conflict with <Enter>
-vim.keymap.set("n", "m", "[")
-vim.keymap.set("n", "y", "]")
--- vim.keymap.set("n", "M", ",", { desc = "Repeat last movement reversed", noremap = true })
--- vim.keymap.set("n", "Y", ";", { desc = "Repeat last movement", noremap = true })
-vim.keymap.set("n", ",", ";", { desc = "Repeat last movement", noremap = true })
+-- ,/. = prev/next
+vim.keymap.set("n", ",", "[")
+vim.keymap.set("n", ".", "]")
 -- Undo/Redo
-vim.keymap.set("n", "M", "u", { desc = "Undo", noremap = true })
-vim.keymap.set("n", "Y", "<C-r>", { desc = "Redo", noremap = true })
+vim.keymap.set("n", "<C-,>", "u", { desc = "Undo", noremap = true })
+vim.keymap.set("n", "<C-.>", "<C-r>", { desc = "Redo", noremap = true })
 -- Tabs
-vim.keymap.set("n", "mt", vim.cmd.tabprevious, { desc = "Previous tab" })
-vim.keymap.set("n", "yt", vim.cmd.tabnext, { desc = "Next tab" })
+vim.keymap.set("n", ",t", vim.cmd.tabprevious, { desc = "Previous tab" })
+vim.keymap.set("n", ".t", vim.cmd.tabnext, { desc = "Next tab" })
 -- Jumplist
-vim.keymap.set("n", "mp", "<C-o>", { desc = "Previous cursor position", noremap = true })
-vim.keymap.set("n", "yp", "<C-i>", { desc = "Next cursor position", noremap = true })
+vim.keymap.set("n", ",p", "<C-o>", { desc = "Previous cursor position", noremap = true })
+vim.keymap.set("n", ".p", "<C-i>", { desc = "Next cursor position", noremap = true })
 -- Quickfix list
-vim.keymap.set("n", "yq", vim.cmd.cnext, { desc = "quickfix: Next item" })
-vim.keymap.set("n", "mq", vim.cmd.cprev, { desc = "quickfix: Previous item" })
+vim.keymap.set("n", ",q", vim.cmd.cprev, { desc = "quickfix: Previous item" })
+vim.keymap.set("n", ".q", vim.cmd.cnext, { desc = "quickfix: Next item" })
+-- TODO: Add lost mappings:
+vim.keymap.set("n", "H", ",", { desc = "Repeat last movement reversed", noremap = true })
+vim.keymap.set("n", "I", ";", { desc = "Repeat last movement", noremap = true })
+vim.keymap.set("n", "=", ".", { desc = "Repeat last command", noremap = true })
+vim.keymap.set("n", "<leader>xf", "=", { desc = "Auto format", noremap = true })
