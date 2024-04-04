@@ -26,8 +26,7 @@ vim.keymap.set({ "n", "v" }, "??", "?", { noremap = true })
 vim.keymap.set("v", "N", ":m '>+1<CR>gv=gv", { desc = "Move one line down" })
 vim.keymap.set("v", "E", ":m '<-2<CR>gv=gv", { desc = "Move one line up" })
 
-vim.keymap.set("n", "D", [["_d]], { desc = "Delete without yanking" })
-vim.keymap.set("n", "<C-d>", "D", { desc = "Delete to the end of the line", noremap = true })
+vim.keymap.set("n", "<C-D>", [["_d]], { desc = "Delete without yanking" })
 -- Replace exact match of current word (under cursor) with...
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -122,8 +121,8 @@ vim.keymap.set({"n", "x"}, "K", "N", { desc = "Previous search result", noremap 
 vim.keymap.set("n", ",", "[")
 vim.keymap.set("n", ".", "]")
 -- Undo/Redo
-vim.keymap.set("n", "<C-,>", "u", { desc = "Undo", noremap = true })
-vim.keymap.set("n", "<C-.>", "<C-r>", { desc = "Redo", noremap = true })
+vim.keymap.set("n", ",z", "u", { desc = "Undo", noremap = true })
+vim.keymap.set("n", ".z", "<C-r>", { desc = "Redo", noremap = true })
 -- Tabs
 vim.keymap.set("n", ",t", vim.cmd.tabprevious, { desc = "Previous tab" })
 vim.keymap.set("n", ".t", vim.cmd.tabnext, { desc = "Next tab" })
