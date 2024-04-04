@@ -39,14 +39,21 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 ---------------------------------------
 -- 'x' stands for 'visual' and 'select' mode (:help mapmode-x)
 -- copy to OS clipboard (COLEMAK adapted)
-vim.keymap.set({"n", "x"}, "<leader>j", [["+y]], { desc = "Copy selection to OS clipboard" })
-vim.keymap.set({"n", "x"}, "<leader>J", [["+Y]], { desc = "Copy line to OS clipboard" })
-vim.keymap.set({"n", "x"}, "<leader>p", [["+P]], { desc = "Paste from OS clipboard" })
+vim.keymap.set({"n", "x"}, "<C-y>", [["+y]], { desc = "Copy selection to OS clipboard" })
+vim.keymap.set({"n", "x"}, "<C-S-Y>", [["+Y]], { desc = "Copy line to OS clipboard" })
+vim.keymap.set({"n", "x"}, "<C-p>", [["+P]], { desc = "Paste from OS clipboard" })
+
+-- Terminal mode remaps (fzf, etc?)
 -- For more remaps for terminal, see: :help terminal-input
 vim.keymap.set("t", "<C-r>", function()
   return '<C-\\><C-N>"' .. vim.fn.nr2char(vim.fn.getchar()) .. 'pi'
 end, { noremap = true, expr = true, desc = "Paste from given register, eg: <C-r>+" })
 vim.keymap.set("t", "<C-p>", '<C-\\><C-N>pi', { noremap = true, desc = "Paste from current register" })
+
+-- Yank current buffer info
+vim.keymap.set({"n", "x"}, "<leader>yn", function() vim.cmd([[let @" = expand("%:t")]]) end, { desc = "Yank current file name" })
+vim.keymap.set({"n", "x"}, "<leader>yp", function() vim.cmd([[let @" = expand("%")]]) end, { desc = "Yank current file relative path" })
+vim.keymap.set({"n", "x"}, "<leader>yP", function() vim.cmd([[let @" = expand("%:p")]]) end, { desc = "Yank current file absolute path" })
 
 ---------------------------------------
 -- TEXT NAVIGATION
