@@ -1,6 +1,9 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+
+vim.opt.list = true
+vim.opt.listchars = { trail = '·', nbsp = '␣', tab = '» ' }
 -- Lines to always show above/below cursor
 vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 10
@@ -13,12 +16,6 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldnestmax = 4
 vim.opt.foldenable = false
 vim.opt.foldlevel = 1
-
--- Changing defaults for 'Explorer' mode, etc
--- Defaults are: noma nomod nonu nowrap ro nobl
-vim.g.netrw_bufsettings = 'noma nomod nu relnum nowrap ro nobl'
-vim.g.netrw_preview = 1 -- Vertical split for preview
--- vim.g.netrw_winsize = 30
 
 vim.opt.swapfile = false
 vim.opt.backup = false
