@@ -71,10 +71,14 @@ vim.keymap.set("n", "K", "Nzzzv")
 -- Quickfix window
 vim.keymap.set("n", "<C-w>c", vim.cmd.cclose, { desc = "quickfix: Close" })
 -- Window navigation (COLEMAK adapted)
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
-vim.keymap.set("n", "<C-n>", "<C-w>j", { desc = "Go to the bottom window" })
-vim.keymap.set("n", "<C-e>", "<C-w>k", { desc = "Go to the upper window" })
-vim.keymap.set("n", "<C-i>", "<C-w>l", { desc = "Go to the right window" })
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
+-- vim.keymap.set("n", "<C-n>", "<C-w>j", { desc = "Go to the bottom window" })
+-- vim.keymap.set("n", "<C-e>", "<C-w>k", { desc = "Go to the upper window" })
+-- vim.keymap.set("n", "<C-i>", "<C-w>l", { desc = "Go to the right window" })
+vim.keymap.set("n", "gh", "<C-w>h", { desc = "Go to the left window" })
+vim.keymap.set("n", "gn", "<C-w>j", { desc = "Go to the bottom window" }) -- Overrides 'Search forward and select'
+vim.keymap.set("n", "ge", "<C-w>k", { desc = "Go to the upper window" }) -- Overrides 'Previous end of word'
+vim.keymap.set("n", "gi", "<C-w>l", { desc = "Go to the right window" }) -- Overrides 'Move to the last insertion and INSERT'
 -- When create new split, focus on it
 -- FIX OR REMOVE
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l", { desc = "Vertical split (focus right)" })
