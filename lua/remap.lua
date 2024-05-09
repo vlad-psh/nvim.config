@@ -19,6 +19,9 @@ vim.g.mapleader = " "
 vim.keymap.set({ "n", "v" }, "//", "/", { noremap = true })
 vim.keymap.set({ "n", "v" }, "??", "?", { noremap = true })
 
+vim.keymap.set({ "n", "x", "i"}, "<C-q>", "<Esc>:q<CR>", { desc = "Quit the current window" })
+vim.keymap.set({ "n", "x", "i"}, "<C-s>", "<Esc>:w<CR>", { desc = "Write buffer to the current file" })
+
 ---------------------------------------
 -- TEXT MANIPULATION
 ---------------------------------------
