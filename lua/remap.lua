@@ -9,6 +9,7 @@
 
 vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Stop highlighing the search results", noremap = true })
 
 vim.g.mapleader = " "
 -- <leader>i - Show floating window with some info
@@ -83,6 +84,9 @@ vim.keymap.set("n", "gn", "<C-w>j", { desc = "Go to the bottom window" }) -- Ove
 vim.keymap.set("n", "ge", "<C-w>k", { desc = "Go to the upper window" }) -- Overrides 'Previous end of word'
 vim.keymap.set("n", "gi", "<C-w>l", { desc = "Go to the right window" }) -- Overrides 'Move to the last insertion and INSERT'
 
+vim.keymap.set("n", "g,", "<C-o>", { desc = "Go to [count] older cursor position in jump list" })
+vim.keymap.set("n", "g.", "<C-i>", { desc = "Go to [count] newer cursor position in jump list" })
+
 ---------------------------------------
 -- OTHER
 ---------------------------------------
@@ -94,8 +98,6 @@ vim.keymap.set("n", "<leader>c", function() vim.cmd("Themery") end, { desc = "Th
 ---------------------------------------
 -- COLEMAK
 ---------------------------------------
-vim.keymap.set({"n", "x", "o"}, "u", "",  { noremap = true })
-
 vim.keymap.set({"n", "x", "o"}, "h", "<left>",  { noremap = true })
 vim.keymap.set({"n", "x", "o"}, "n", "<down>",  { noremap = true })
 vim.keymap.set({"n", "x", "o"}, "e", "<up>",    { noremap = true })
