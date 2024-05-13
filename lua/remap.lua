@@ -57,6 +57,9 @@ vim.keymap.set("t", "<C-p>", '<C-\\><C-N>pi', { noremap = true, desc = "Paste fr
 vim.keymap.set({"n", "x"}, "<leader>yn", function() vim.cmd([[let @" = expand("%:t")]]) end, { desc = "Yank current file name" })
 vim.keymap.set({"n", "x"}, "<leader>yp", function() vim.cmd([[let @" = expand("%")]]) end, { desc = "Yank current file relative path" })
 vim.keymap.set({"n", "x"}, "<leader>yP", function() vim.cmd([[let @" = expand("%:p")]]) end, { desc = "Yank current file absolute path" })
+vim.keymap.set({"n", "x"}, "<leader><C-y>n", function() vim.cmd([[let @+ = expand("%:t")]]) end, { desc = "Yank current file name" })
+vim.keymap.set({"n", "x"}, "<leader><C-y>p", function() vim.cmd([[let @+ = expand("%")]]) end, { desc = "Yank current file relative path" })
+vim.keymap.set({"n", "x"}, "<leader><C-y>P", function() vim.cmd([[let @+ = expand("%:p")]]) end, { desc = "Yank current file absolute path" })
 
 ---------------------------------------
 -- TEXT NAVIGATION
