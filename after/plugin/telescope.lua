@@ -122,8 +122,8 @@ vim.keymap.set('n', '/u', builtin.buffers, { desc = 'Buffers' })
 -- GIT pickers
 ---------------------------
 vim.keymap.set('n', '/s', builtin.git_status, { desc = 'Git status/stage' })
-vim.keymap.set('n', '/c', builtin.git_bcommits, { desc = 'Git commits for current buffer' })
--- vim.keymap.set('n', '<leader>fic', builtin.git_commits, { desc = 'Git commits' })
+vim.keymap.set('n', '/C', builtin.git_bcommits, { desc = 'Git commits for current buffer' })
+vim.keymap.set('n', '/c', builtin.git_commits, { desc = 'Git commits' })
 vim.keymap.set('n', '/b', function()
   builtin.git_branches({
     default_text = "!origin "
