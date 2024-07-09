@@ -13,6 +13,11 @@ require('telescope').setup{
     scroll_strategy = "limit",
     layout_strategy = "habahiro",
     path_display = { truncate = 1 },
+    cache_picker = {
+      num_pickers = 10, -- The number of pickers to be cached
+      limit_entries = 1000, -- The amount of entries to be saved for each picker
+      ignore_empty_prompt = false, -- To save 'File Browser' pickers (with no filtering applied)
+    },
     mappings = {
       i = {
         -- ["<C-e>"] = actions.move_selection_worse,
@@ -81,6 +86,8 @@ require('telescope').setup{
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('file_browser')
 
+vim.keymap.set('n', '<leader>/', builtin.resume, { desc = 'Re-open previous Telescope picker' })
+vim.keymap.set('n', '<leader>?', builtin.pickers, { desc = 'Open previously used pickers window' })
 ---------------------------
 -- File finders
 ---------------------------
