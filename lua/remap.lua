@@ -129,8 +129,8 @@ vim.keymap.set({"n", "x"}, "K", "N", { desc = "Previous search result", noremap 
 vim.keymap.set("n", ",", "[")
 vim.keymap.set("n", ".", "]")
 -- Undo/Redo
-vim.keymap.set("n", ",z", "u", { desc = "Undo", noremap = true })
-vim.keymap.set("n", ".z", "<C-r>", { desc = "Redo", noremap = true })
+vim.keymap.set("n", "(", "u", { desc = "Undo", noremap = true })
+vim.keymap.set("n", ")", "<C-r>", { desc = "Redo", noremap = true })
 -- Tabs
 vim.keymap.set("n", ",t", vim.cmd.tabprevious, { desc = "Previous tab" })
 vim.keymap.set("n", ".t", vim.cmd.tabnext, { desc = "Next tab" })
