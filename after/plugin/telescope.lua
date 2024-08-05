@@ -86,8 +86,8 @@ require('telescope').setup{
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('file_browser')
 
-vim.keymap.set('n', '<leader>/', builtin.resume, { desc = 'Re-open previous Telescope picker' })
-vim.keymap.set('n', '<leader>?', builtin.pickers, { desc = 'Open previously used pickers window' })
+vim.keymap.set('n', '/ ', builtin.resume, { desc = 'Re-open previous Telescope picker' })
+vim.keymap.set('n', '? ', builtin.pickers, { desc = 'Open previously used pickers window' })
 ---------------------------
 -- File finders
 ---------------------------
