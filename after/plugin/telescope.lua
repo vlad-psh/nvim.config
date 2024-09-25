@@ -29,8 +29,8 @@ require('telescope').setup{
         ["<S-left>"] = actions.preview_scrolling_left,
         ["<S-right>"] = actions.preview_scrolling_right,
         ["<C-p>"] = { '<C-r>"', type = "command" }, -- Paste from <"> register
-        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<C-S-q>"] = actions.send_to_qflist + actions.open_qflist,
+        ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
         ["<esc>"] = actions.close, -- Disable "normal" mode while in Telescope
       },
     },
