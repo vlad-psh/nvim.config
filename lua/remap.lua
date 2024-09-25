@@ -42,13 +42,14 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 ---------------------------------------
 -- 'x' stands for 'visual' and 'select' mode (:help mapmode-x)
 -- copy to OS clipboard (COLEMAK adapted)
-vim.keymap.set({"n", "x"}, "<C-y>", [["+y]], { desc = "Copy selection to OS clipboard" })
-vim.keymap.set({"n", "x"}, "<C-S-Y>", [["+Y]], { desc = "Copy line to OS clipboard" })
-vim.keymap.set({"n", "x"}, "<C-p>", [["+P]], { desc = "Paste from OS clipboard" })
+vim.keymap.set({"n", "x"}, "Y", [["+y]], { desc = "Copy selection to OS clipboard" })
+vim.keymap.set({"n", "x"}, "P", [["+P]], { desc = "Paste from OS clipboard" })
+vim.keymap.set({"n", "x"}, "<leader>yl", [[Y]], { desc = "Yank line", noremap = true })
+vim.keymap.set({"n", "x"}, "<leader>Yl", [["+Y]], { desc = "Copy line to OS clipboard" })
 
 -- Terminal mode remaps (fzf, etc?)
 -- For more remaps for terminal, see: :help terminal-input
-vim.keymap.set("t", "<C-r>", function()
+vim.keymap.set("t", "<C-S-P>", function()
   return '<C-\\><C-N>"' .. vim.fn.nr2char(vim.fn.getchar()) .. 'pi'
 end, { noremap = true, expr = true, desc = "Paste from given register, eg: <C-r>+" })
 vim.keymap.set("t", "<C-p>", '<C-\\><C-N>pi', { noremap = true, desc = "Paste from current register" })
@@ -57,9 +58,9 @@ vim.keymap.set("t", "<C-p>", '<C-\\><C-N>pi', { noremap = true, desc = "Paste fr
 vim.keymap.set({"n", "x"}, "<leader>yn", function() vim.cmd([[let @" = expand("%:t")]]) end, { desc = "Yank current file name" })
 vim.keymap.set({"n", "x"}, "<leader>yp", function() vim.cmd([[let @" = expand("%")]]) end, { desc = "Yank current file relative path" })
 vim.keymap.set({"n", "x"}, "<leader>yP", function() vim.cmd([[let @" = expand("%:p")]]) end, { desc = "Yank current file absolute path" })
-vim.keymap.set({"n", "x"}, "<leader><C-y>n", function() vim.cmd([[let @+ = expand("%:t")]]) end, { desc = "Yank current file name" })
-vim.keymap.set({"n", "x"}, "<leader><C-y>p", function() vim.cmd([[let @+ = expand("%")]]) end, { desc = "Yank current file relative path" })
-vim.keymap.set({"n", "x"}, "<leader><C-y>P", function() vim.cmd([[let @+ = expand("%:p")]]) end, { desc = "Yank current file absolute path" })
+vim.keymap.set({"n", "x"}, "<leader>Yn", function() vim.cmd([[let @+ = expand("%:t")]]) end, { desc = "Copy current file name to OS clipboard" })
+vim.keymap.set({"n", "x"}, "<leader>Yp", function() vim.cmd([[let @+ = expand("%")]]) end, { desc = "Copy current file relative path to OS clipboard" })
+vim.keymap.set({"n", "x"}, "<leader>YP", function() vim.cmd([[let @+ = expand("%:p")]]) end, { desc = "Copy current file absolute path to OS clipboard" })
 
 ---------------------------------------
 -- TEXT NAVIGATION
