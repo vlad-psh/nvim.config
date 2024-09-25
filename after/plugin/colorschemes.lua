@@ -22,7 +22,6 @@ require("themery").setup({
     { name = "mosel", colorscheme = "mosel" },
     { name = "kanagawa-wave", colorscheme = "kanagawa-wave", after = customSearchColors },
   },
-  themeConfigFile = "~/.config/nvim/lua/theme.lua",
   livePreview = true,
 })
 
@@ -58,8 +57,6 @@ require("nightly").setup({
   highlights = {},
 })
 
-vim.cmd('colorscheme kanagawa-dragon')
-
 vim.cmd('set guicursor=n-v-c:block-Cursor')
 vim.cmd('set guicursor+=i:ver50-Cursor')
 
@@ -68,5 +65,3 @@ vim.cmd('set guicursor+=i:ver50-Cursor')
 
 -- let g:onedark_config = { 'style': 'light' }
 -- set background=light
-
-require('theme')
