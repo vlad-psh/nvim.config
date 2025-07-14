@@ -34,6 +34,12 @@ vim.keymap.set("n", "<C-D>", [["_d]], { desc = "Delete without yanking" })
 -- Replace exact match of current word (under cursor) with...
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Delete text" remappings
+vim.keymap.set("n", "dh", "dF", { desc = "Delete back until ... including" })
+vim.keymap.set("n", "dn", "dT", { desc = "Delete back until ..." })
+vim.keymap.set("n", "de", "dt", { desc = "Delete forward until ..." })
+vim.keymap.set("n", "di", "df", { desc = "Delete forward until ... including" })
+
 -- Keep visual selection after indenting
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
