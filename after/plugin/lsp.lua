@@ -8,7 +8,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- For the list of all available server configurations refer to the:
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 lspconfig.lua_ls.setup({ capabilities = capabilities })
-lspconfig.tsserver.setup({ capabilities = capabilities })
+lspconfig.ts_ls.setup({ capabilities = capabilities })
 lspconfig.solargraph.setup({ capabilities = capabilities })
 lspconfig.volar.setup({
   capabilities = capabilities,

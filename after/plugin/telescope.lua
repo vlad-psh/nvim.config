@@ -145,5 +145,6 @@ vim.keymap.set('n', '-', function()
     path = "%:p:h",
     select_buffer = true,
     layout_config = { max_results_width = 75 },
+    display_stat = { date = true, size = true, mode = false },
   })
 end, { desc = 'File browser' })
