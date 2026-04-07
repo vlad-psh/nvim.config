@@ -2,18 +2,19 @@
 -- Should be required before LSP config itself
 require("neodev").setup({})
 
-local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- For the list of all available server configurations refer to the:
--- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
-lspconfig.lua_ls.setup({ capabilities = capabilities })
-lspconfig.ts_ls.setup({ capabilities = capabilities })
-lspconfig.solargraph.setup({ capabilities = capabilities })
-lspconfig.volar.setup({
-  capabilities = capabilities,
-  filetypes = {'typescript', 'javascript', 'vue', 'json'}
-})
+local function enable(server, config)
+  vim.lsp.config(server, vim.tbl_deep_extend("force", {
+    capabilities = capabilities,
+  }, config or {}))
+  vim.lsp.enable(server)
+end
+
+enable("lua_ls")
+enable("ts_ls")
+enable("solargraph")
+enable("vue_ls")
 
 -- Navigation/movement
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })

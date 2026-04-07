@@ -1,84 +1,55 @@
-require 'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = { "vimdoc", "javascript", "ts", "lua", "ruby", "vue", "json" },
+local ok, treesitter = pcall(require, "nvim-treesitter")
+if not ok then
+  return
+end
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+treesitter.setup({})
 
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
 
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-
-  context_commentstring = {
-    enable = true,
-  },
-
-  textobjects = {
+local textobjects_ok, textobjects = pcall(require, "nvim-treesitter-textobjects")
+if textobjects_ok then
+  textobjects.setup({
     select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        -- You can optionally set descriptions to the mappings (used in the desc parameter of
-        -- nvim_buf_set_keymap) which plugins like which-key display
-        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-        -- You can also use captures from other query groups like `locals.scm`
-        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
-      },
-      -- You can choose the select mode (default is charwise 'v')
-      --
-      -- Can also be a function which gets passed a table with the keys
-      -- * query_string: eg '@function.inner'
-      -- * method: eg 'v' or 'o'
-      -- and should return the mode ('v', 'V', or '<c-v>') or a table
-      -- mapping query_strings to modes.
       selection_modes = {
-        ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
-        ['@class.outer'] = '<c-v>', -- blockwise
+        ["@parameter.outer"] = "v",
+        ["@function.outer"] = "V",
+        ["@class.outer"] = "<c-v>",
       },
-      -- If you set this to `true` (default is `false`) then any textobject is
-      -- extended to include preceding or succeeding whitespace. Succeeding
-      -- whitespace has priority in order to act similarly to eg the built-in
-      -- `ap`.
-      --
-      -- Can also be a function which gets passed a table with the keys
-      -- * query_string: eg '@function.inner'
-      -- * selection_mode: eg 'v'
-      -- and should return true of false
       include_surrounding_whitespace = true,
     },
-  },
-}
+  })
 
-require'treesitter-context'.setup{
-  enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-  max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-  min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+  local select = require("nvim-treesitter-textobjects.select")
+
+  local function map_textobject(lhs, query, query_group, desc)
+    vim.keymap.set({ "x", "o" }, lhs, function()
+      select.select_textobject(query, query_group)
+    end, { desc = desc })
+  end
+
+  map_textobject("af", "@function.outer", "textobjects", "Select outer function")
+  map_textobject("if", "@function.inner", "textobjects", "Select inner function")
+  map_textobject("ac", "@class.outer", "textobjects", "Select outer class")
+  map_textobject("ic", "@class.inner", "textobjects", "Select inner class")
+  map_textobject("as", "@local.scope", "locals", "Select language scope")
+end
+
+require("treesitter-context").setup({
+  enable = true,
+  max_lines = 0,
+  min_window_height = 0,
   line_numbers = true,
-  multiline_threshold = 1, -- Maximum number of lines to collapse for a single context line
-  trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-  mode = 'topline',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-  -- Separator between context and content. Should be a single character string, like '-'.
-  -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+  multiline_threshold = 1,
+  trim_scope = "outer",
+  mode = "topline",
   separator = nil,
-  zindex = 20, -- The Z-index of the context window
-  on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
-}
+  zindex = 20,
+  on_attach = nil,
+})

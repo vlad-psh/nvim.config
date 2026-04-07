@@ -67,7 +67,6 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug 'nvim-treesitter/nvim-treesitter-context'
-Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'slim-template/vim-slim'
 Plug 'nvim-lualine/lualine.nvim'
