@@ -70,15 +70,18 @@ vim.cmd("autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])"
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- PgUp/PgDn centers cursor
+vim.keymap.set("n", "K", "<C-u>zz")
+vim.keymap.set("n", "J", "<C-d>zz")
 ---------------------------------------
 -- UI NAVIGATION
 ---------------------------------------
 -- Quickfix window
 vim.keymap.set("n", "<C-w>c", vim.cmd.cclose, { desc = "quickfix: Close" })
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to the bottom window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to the upper window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to the right window" })
+vim.keymap.set("n", "gh", "<C-w>h", { desc = "Go to the left window" })
+vim.keymap.set("n", "gj", "<C-w>j", { desc = "Go to the bottom window" })
+vim.keymap.set("n", "gk", "<C-w>k", { desc = "Go to the upper window" })
+vim.keymap.set("n", "gl", "<C-w>l", { desc = "Go to the right window" })
 
 vim.keymap.set("n", "g,", "<C-o>", { desc = "Go to [count] older cursor position in jump list" })
 vim.keymap.set("n", "g.", "<C-i>", { desc = "Go to [count] newer cursor position in jump list" })
@@ -90,3 +93,22 @@ vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "
 -- vim.keymap.set("n", "<C-m>", "@@", { desc = "Repeat last macro" })
 vim.keymap.set("n", "<leader>r", function() vim.cmd("CellularAutomaton make_it_rain") end, { desc = "Make it rain!" })
 vim.keymap.set("n", "<leader>c", function() vim.cmd("Themery") end, { desc = "Themery / Switch colorscheme" })
+
+-------------------------------------------
+-- ,/. = prev/next
+vim.keymap.set("n", ",", "[")
+vim.keymap.set("n", ".", "]")
+-- Undo/Redo
+vim.keymap.set("n", "(", "u", { desc = "Undo", noremap = true })
+vim.keymap.set("n", ")", "<C-r>", { desc = "Redo", noremap = true })
+-- Tabs
+vim.keymap.set("n", ",t", vim.cmd.tabprevious, { desc = "Previous tab" })
+vim.keymap.set("n", ".t", vim.cmd.tabnext, { desc = "Next tab" })
+-- Jumplist
+vim.keymap.set("n", ",p", "<C-o>", { desc = "Previous cursor position", noremap = true })
+vim.keymap.set("n", ".p", "<C-i>", { desc = "Next cursor position", noremap = true })
+-- Quickfix list
+vim.keymap.set("n", ",q", vim.cmd.cprev, { desc = "quickfix: Previous item" })
+vim.keymap.set("n", ".q", vim.cmd.cnext, { desc = "quickfix: Next item" })
+
+vim.keymap.set("n", "=", ".", { desc = "Repeat last command", noremap = true })
