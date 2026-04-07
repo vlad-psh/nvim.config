@@ -79,23 +79,16 @@ Plug 'nvim-lualine/lualine.nvim'
 -- Themes switcher
 Plug 'zaldih/themery.nvim'
 
--- https://github.com/Alexis12119/nightly.nvim
-Plug 'Alexis12119/nightly.nvim'
 -- https://github.com/TheNiteCoder/mountaineer.vim
 Plug 'TheNiteCoder/mountaineer.vim'
 -- https://github.com/EdenEast/nightfox.nvim
 Plug 'EdenEast/nightfox.nvim'
 -- https://github.com/mcchrish/zenbones.nvim
 Plug 'mcchrish/zenbones.nvim'
--- https://github.com/arzg/vim-colors-xcode
-Plug 'arzg/vim-colors-xcode'
--- https://github.com/kartikp10/noctis.nvim
-Plug 'rktjmp/lush.nvim'
-Plug 'kartikp10/noctis.nvim'
 -- https://github.com/rebelot/kanagawa.nvim
 Plug 'rebelot/kanagawa.nvim'
--- https://github.com/Domeee/mosel.nvim
-Plug 'Domeee/mosel.nvim'
+-- https://github.com/Mofiqul/vscode.nvim
+Plug 'Mofiqul/vscode.nvim'
 
 -------------------------------------------------
 -- FUN
