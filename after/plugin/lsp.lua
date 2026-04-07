@@ -16,11 +16,10 @@ lspconfig.volar.setup({
 })
 
 -- Navigation/movement
--- COLEMAK adapted
-vim.keymap.set("n", "md", vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
-vim.keymap.set("n", "yd", vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
-vim.keymap.set("n", "gm", vim.lsp.buf.implementation, { desc = 'LSP: Go to implementation' })
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = 'LSP: Go to implementation' })
 vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { desc = 'LSP: Go to type_definition' })
 -- Floating windows
 vim.keymap.set("n", "<leader>ii", vim.lsp.buf.hover, { desc = 'LSP: Show hover' })
@@ -44,12 +43,11 @@ cmp.setup({
     expand = function(args) require("luasnip").lsp_expand(args.body) end,
   },
   mapping = {
-    -- COLEMAK adapted
     ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-    ['<C-e>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-    ['<C-S-n>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-S-e>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-o>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }),
+    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<CR>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }),
     ['<C-q>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -61,4 +59,3 @@ cmp.setup({
     { name = 'buffer' },
   }),
 })
-

@@ -26,19 +26,12 @@ vim.keymap.set({ "n", "x", "i"}, "<C-s>", "<Esc>:w<CR>", { desc = "Write buffer 
 ---------------------------------------
 -- TEXT MANIPULATION
 ---------------------------------------
--- Move lines up and down (COLEMAK adapted)
-vim.keymap.set("v", "N", ":m '>+1<CR>gv=gv", { desc = "Move one line down" })
-vim.keymap.set("v", "E", ":m '<-2<CR>gv=gv", { desc = "Move one line up" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up" })
 
 vim.keymap.set("n", "<C-D>", [["_d]], { desc = "Delete without yanking" })
 -- Replace exact match of current word (under cursor) with...
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Delete text" remappings
-vim.keymap.set("n", "dh", "dF", { desc = "Delete back until ... including" })
-vim.keymap.set("n", "dn", "dT", { desc = "Delete back until ..." })
-vim.keymap.set("n", "de", "dt", { desc = "Delete forward until ..." })
-vim.keymap.set("n", "di", "df", { desc = "Delete forward until ... including" })
 
 -- Keep visual selection after indenting
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
@@ -47,9 +40,8 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 -- COPY AND PASTE
 ---------------------------------------
 -- 'x' stands for 'visual' and 'select' mode (:help mapmode-x)
--- copy to OS clipboard (COLEMAK adapted)
-vim.keymap.set({"n", "x"}, "Y", [["+y]], { desc = "Copy selection to OS clipboard" })
-vim.keymap.set({"n", "x"}, "P", [["+P]], { desc = "Paste from OS clipboard" })
+vim.keymap.set({"n", "x"}, "<leader>y", [["+y]], { desc = "Copy selection to OS clipboard" })
+vim.keymap.set({"n", "x"}, "<leader>p", [["+P]], { desc = "Paste from OS clipboard" })
 vim.keymap.set({"n", "x"}, "<leader>yl", [[Y]], { desc = "Yank line", noremap = true })
 vim.keymap.set({"n", "x"}, "<leader>Yl", [["+Y]], { desc = "Copy line to OS clipboard" })
 
@@ -75,24 +67,18 @@ vim.keymap.set({"n", "x"}, "<leader>YP", function() vim.cmd([[let @+ = expand("%
 -- When leaving insert mode, do not move the cursor one character forward
 vim.cmd("autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])")
 
--- Search result is always in the center of the screen (COLEMAK adapted)
-vim.keymap.set("n", "k", "nzzzv")
-vim.keymap.set("n", "K", "Nzzzv")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 ---------------------------------------
 -- UI NAVIGATION
 ---------------------------------------
 -- Quickfix window
 vim.keymap.set("n", "<C-w>c", vim.cmd.cclose, { desc = "quickfix: Close" })
--- Window navigation (COLEMAK adapted)
--- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
--- vim.keymap.set("n", "<C-n>", "<C-w>j", { desc = "Go to the bottom window" })
--- vim.keymap.set("n", "<C-e>", "<C-w>k", { desc = "Go to the upper window" })
--- vim.keymap.set("n", "<C-i>", "<C-w>l", { desc = "Go to the right window" })
-vim.keymap.set("n", "gh", "<C-w>h", { desc = "Go to the left window" })
-vim.keymap.set("n", "gn", "<C-w>j", { desc = "Go to the bottom window" }) -- Overrides 'Search forward and select'
-vim.keymap.set("n", "ge", "<C-w>k", { desc = "Go to the upper window" }) -- Overrides 'Previous end of word'
-vim.keymap.set("n", "gi", "<C-w>l", { desc = "Go to the right window" }) -- Overrides 'Move to the last insertion and INSERT'
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to the bottom window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to the upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to the right window" })
 
 vim.keymap.set("n", "g,", "<C-o>", { desc = "Go to [count] older cursor position in jump list" })
 vim.keymap.set("n", "g.", "<C-i>", { desc = "Go to [count] newer cursor position in jump list" })
@@ -104,51 +90,3 @@ vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "
 -- vim.keymap.set("n", "<C-m>", "@@", { desc = "Repeat last macro" })
 vim.keymap.set("n", "<leader>r", function() vim.cmd("CellularAutomaton make_it_rain") end, { desc = "Make it rain!" })
 vim.keymap.set("n", "<leader>c", function() vim.cmd("Themery") end, { desc = "Themery / Switch colorscheme" })
-
----------------------------------------
--- COLEMAK
----------------------------------------
-vim.keymap.set({"n", "x", "o"}, "h", "<left>",  { noremap = true })
-vim.keymap.set({"n", "x", "o"}, "n", "<down>",  { noremap = true })
-vim.keymap.set({"n", "x", "o"}, "e", "<up>",    { noremap = true })
-vim.keymap.set({"n", "x", "o"}, "i", "<right>", { noremap = true })
-
--- PgUp/PgDn centers cursor
-vim.keymap.set("n", "E", "<C-u>zz")
-vim.keymap.set("n", "N", "<C-d>zz")
-
--- Reproduce lost 'i' key, sacrificed for the 'right' movement
--- 'u' in COLEMAK is on the same place as 'i' in QWERTY
-vim.keymap.set("n", "u", "i", { desc = "Insert mode (before cursor)", noremap = true })
-vim.keymap.set("n", "U", "I", { desc = "Append to the end of the line", noremap = true })
--- Inner text objects. E.g. dip (delete inner paragraph) is now dup
-vim.keymap.set({"x", "o"}, "u", "i", { desc = "Inner text object", noremap = true })
-vim.cmd("autocmd! BufRead * xnoremap <buffer> <nowait> i <right>")
-vim.keymap.set("n", "vi", "v<right>")
-
-vim.keymap.set({"n", "x"}, "<C-;>", "J", { desc = "Join lines", noremap = true })
-
-vim.keymap.set({"n", "x"}, "k", "n", { desc = "Next search result", noremap = true })
-vim.keymap.set({"n", "x"}, "K", "N", { desc = "Previous search result", noremap = true })
-
--------------------------------------------
--- ,/. = prev/next
-vim.keymap.set("n", ",", "[")
-vim.keymap.set("n", ".", "]")
--- Undo/Redo
-vim.keymap.set("n", "(", "u", { desc = "Undo", noremap = true })
-vim.keymap.set("n", ")", "<C-r>", { desc = "Redo", noremap = true })
--- Tabs
-vim.keymap.set("n", ",t", vim.cmd.tabprevious, { desc = "Previous tab" })
-vim.keymap.set("n", ".t", vim.cmd.tabnext, { desc = "Next tab" })
--- Jumplist
-vim.keymap.set("n", ",p", "<C-o>", { desc = "Previous cursor position", noremap = true })
-vim.keymap.set("n", ".p", "<C-i>", { desc = "Next cursor position", noremap = true })
--- Quickfix list
-vim.keymap.set("n", ",q", vim.cmd.cprev, { desc = "quickfix: Previous item" })
-vim.keymap.set("n", ".q", vim.cmd.cnext, { desc = "quickfix: Next item" })
--- TODO: Add lost mappings:
-vim.keymap.set("n", "H", ",", { desc = "Repeat last movement reversed", noremap = true })
-vim.keymap.set("n", "I", ";", { desc = "Repeat last movement", noremap = true })
-vim.keymap.set("n", "=", ".", { desc = "Repeat last command", noremap = true })
-vim.keymap.set("n", "<leader>xf", "=", { desc = "Auto format", noremap = true })
